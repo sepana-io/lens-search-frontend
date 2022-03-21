@@ -1,0 +1,15 @@
+@import "../../../../styles/mixins";
+
+.wrapper {
+    border-radius: 7px;
+    padding: 15px;
+    height: calc(100vh - 50px);
+    min-width: 150px;
+    max-width: 300px;
+    background-color: $color-secondary;
+
+    h4 {
+        margin-bottom: 20px;
+        color: $color-primary;
+    }
+}

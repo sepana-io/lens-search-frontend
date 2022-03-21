@@ -1,0 +1,9 @@
+@import "../../../../styles/mixins";
+
+.wrapper {
+    max-width: 500px;
+    min-width: 250px;
+    min-height: 200px;
+    border: 1px solid grey;
+    border-radius: 7px;
+}
