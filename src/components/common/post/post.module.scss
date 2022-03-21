@@ -1,9 +1,44 @@
 @import "../../../../styles/mixins";
 
 .wrapper {
-    max-width: 500px;
-    min-width: 250px;
+    max-width: 600px;
     min-height: 200px;
     border: 1px solid grey;
     border-radius: 7px;
+    background-color: #FFFFFF;
+    display: flex;
+    margin-top: 16px;
+    margin-left: 16px;
+    padding: 15px;
+}
+.wrapper2{
+    padding-left: 10px;
+}
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+.author {
+    color: #0E501D;
+    font-size: 14px;
+}
+.title {
+    font-weight: 500;
+}
+.description {
+
+}
+.mainImage {
+    max-height: 300px;
+}
+.social{
+    display: flex;
+}
+.unmuted{
+    padding-left: 8px;
+}
+.muted {
+    padding-left: 8px;
+    text-transform: capitalize;
+    color: #6c6c6c;
 }
