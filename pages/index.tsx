@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { Grid } from '@mui/material'
 import Filters from '@/components/common/filters/filters'
 import Post from '@/components/common/post/post'
+import Header from '@/components/header/header'
 
 
 const Home: NextPage = () => {
