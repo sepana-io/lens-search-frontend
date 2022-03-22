@@ -2,10 +2,10 @@ import style from './filters.module.scss'
 
 const Filters = () => {
     return <div className={style.wrapper}>
-        <h4>Filter1</h4>
-        <h4>Filter2</h4>
-        <h4>Filter3</h4>
-        <h4>Filter4</h4>
+        <h3>Advance search</h3>
+        <h4>Filter 1</h4>
+        <h4>Filter 2</h4>
+        <h4>Filter 3</h4>
     </div>
 }
 

@@ -1,19 +1,23 @@
-.wrapper{
-    height: 4rem;
+.wrapper {
+    height: 55px;
     background-color: #0070f3;
     padding: 16px;
     position: sticky;
     top: 0px;
 }
-.link{
-    color: #FFFFFF;
+.link {
+    color: #ffffff;
     margin-left: 16px;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+    }
+    transition: all 0.3s ease-in-out;
 }
-.fade{
+.fade {
     height: 20px;
-    width: 100vw;
     margin-bottom: 16px;
     position: sticky;
-    top: 64px;
-    background: linear-gradient(180deg, #FAFAFA, transparent);
+    top: 55px;
+    background: linear-gradient(180deg, #fafafa, transparent);
 }
