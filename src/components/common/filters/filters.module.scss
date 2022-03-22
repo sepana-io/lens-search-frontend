@@ -1,5 +1,70 @@
 @import "../../../../styles/mixins";
 
+.FilterWrapper {
+    margin-top: 20px;
+    transition: all 0.3s ease-in;
+    @media screen and (max-width: 1023px) {
+        margin-top: 12px;
+    }
+}
+
+.FilterBtn {
+    width: 146px;
+    height: 39px;
+    border-radius: 32px;
+    background-color: rgb(55, 114, 255);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.FollowWrapperSmall {
+    height: 24px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    border: 1px solid #3772ff;
+    margin: 10px 0 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.FollowWrapperSmall2 {
+    @include FollowWrapperSmall;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-width: 50px;
+}
+.checked {
+    background-color: #3772ff;
+}
+
+.BarIcon {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    display: flex;
+    @media screen and (min-width: 1023px) {
+        display: none;
+    }
+}
+
+.Wrapper {
+    height: auto;
+    min-width: 250px;
+    width: 373px;
+    background-color: #fff;
+}
+
 .wrapper {
     border-radius: 7px;
     padding: 15px;
