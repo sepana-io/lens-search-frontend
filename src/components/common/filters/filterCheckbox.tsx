@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import CheckIcon from '../../assets/icons/check.svg'
-import style from './filers.module.scss'
+import CheckIcon from '../../../assets/icons/check.svg'
+import style from './filters.module.scss'
 import c from 'classnames'
 interface FilterCheckBoxProps {
     initialVlue: string;

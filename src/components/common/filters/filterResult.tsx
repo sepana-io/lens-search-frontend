@@ -4,7 +4,7 @@ import { Close } from '@mui/icons-material';
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 import { objIsEqual, queryObjToString } from '@/utils/util';
-import style from './filers.module.scss'
+import style from './filters.module.scss'
 
 const fliterData = [
   { label: 'Content', inputs: [{ label: 'All of these words', key: "text", extra: { search_type: "all_words" } }, { label: 'Exact phrase', key: "text", extra: { search_type: "exact_phrase" } }, { label: 'Any of these words', key: "text", extra: { search_type: "any_words" } }, { label: 'These hashtags', key: "text", extra: { search_type: "hashtags" } }] },
@@ -33,8 +33,8 @@ const fliterData = [
 
 ]
 interface FilterResultProps {
-  title: string;
-  onClose: () => void;
+  title?: string;
+  onClose?: () => void;
   search: () => void;
   dispatch: (data: any) => void;
 }

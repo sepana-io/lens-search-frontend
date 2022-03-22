@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import { Add, Remove } from '@mui/icons-material';
-import Bio from '../../assets/icons/Bio.svg'
-import Coin from '../../assets/icons/Coin2.svg'
-import Content from '../../assets/icons/Content.svg'
-import Daimonds from '../../assets/icons/Daimonds.svg'
-import Date from '../../assets/icons/Date.svg'
-import Engagement from '../../assets/icons/Engagement.svg'
-import Users from '../../assets/icons/Users.svg'
-import NFT from '../../assets/icons/nft.svg'
-import DAO from '../../assets/icons/clarity_group-line.svg'
+import Bio from '../../../assets/icons/Bio.svg'
+import Coin from '../../../assets/icons/Coin2.svg'
+import Content from '../../../assets/icons/Content.svg'
+import Daimonds from '../../../assets/icons/Daimonds.svg'
+import Date from '../../../assets/icons/Date.svg'
+import Engagement from '../../../assets/icons/Engagement.svg'
+import Users from '../../../assets/icons/Users.svg'
+import NFT from '../../../assets/icons/nft.svg'
+import DAO from '../../../assets/icons/clarity_group-line.svg'
 import { FilterCheckBox, FilterNoCheckBox } from './filterCheckbox'
 import style from './filters.module.scss'
 
@@ -88,7 +88,7 @@ const Filter = (props: FilterProps) => {
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 10, cursor: 'pointer' }} onClick={() => handleAdd()}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
           <div style={{ width: 20, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-            {getIcon(label)}
+            {/* {getIcon(label)} */}
           </div>
           <p style={{ marginLeft: 10, fontWeight: 700, fontSize: 18 }}>{label}</p>
         </div>
@@ -96,9 +96,9 @@ const Filter = (props: FilterProps) => {
       </div>
       <div style={{ maxHeight: isActive ? 700 : 0, transition: 'max-height 0.3s ease-in-out', overflow: 'hidden' }}>
         {inputs.map((item: any, index: number) => {
-          if (label === 'NFT') {
-            return <MultiInputs data={item} query={query} onChange={onChange} key={`fi${index}`} onFocus={handleRefresh} resetIndex={resetIndex} search={search} onKeyDown={onKeyDown} />
-          }
+          // if (label === 'NFT') {
+          //   return <MultiInputs data={item} query={query} onChange={onChange} key={`fi${index}`} onFocus={handleRefresh} resetIndex={resetIndex} search={search} onKeyDown={onKeyDown} />
+          // }
           return <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index} onFocus={handleRefresh} type={getType()} onKeyDown={onKeyDown} />
         })}
         {/* <PRRFilter label={label} getState={getState}/> */}
