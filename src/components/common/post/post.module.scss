@@ -8,7 +8,7 @@
     border-radius: 7px;
     background-color: $color-white;
     display: flex;
-    margin: 16px 30px 0px 30px;
+    margin: 8px 30px 0px 30px;
     padding: 15px;
 }
 .wrapper2 {
@@ -19,14 +19,31 @@
     width: 50px;
     border-radius: 12px;
 }
-.author {
-    color: #0e501d;
-    font-size: 14px;
+.user{
+    display: flex;
+    color: #979797;
+    font-size: 15px;
+    .author {
+        color: #0e501d;
+        font-size: 14px;
+        margin-top: 0px;
+        margin-bottom: 4px;
+    }
+    .spacing{
+        margin-top: 0px;
+        margin-bottom: 4px;
+        padding-left: 8px;
+    }
 }
 .title {
+    margin-top: 0px;
+    margin-bottom: 4px;
     font-weight: 500;
+    font-size: 15px;
 }
 .description {
+    margin-top: 0px;
+    font-size: 15px;
 }
 .mainImage {
     max-height: 300px;

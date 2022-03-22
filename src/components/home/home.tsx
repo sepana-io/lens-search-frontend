@@ -21,7 +21,7 @@ const Home: NextPage = () => {
                 </Grid>
 
                 <Grid item xs={9}>
-                    <div style={{ marginTop: 30, }}>
+                    <div>
                         <InfiniteScroll
                             dataLength={mock.length} //This is important field to render the next data
                             next={() => fetchData('query', page + 1)}

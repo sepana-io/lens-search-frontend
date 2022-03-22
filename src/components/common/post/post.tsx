@@ -10,15 +10,22 @@ const Post = ({ user }: Props) => {
         title,
         description,
         mainImage,
-        social } = user
-        console.log('user', user)
+        social,
+        authorId,
+        pubDate
+    } = user
+    console.log('user', user)
     return <div className={style.wrapper}>
         <div>
             {/* Avatar */}
             <img src={avatar} alt='Avatar' className={style.avatar} />
         </div>
         <div className={style.wrapper2}>
-            <h5 className={style.author}>{author}</h5>
+            <div className={style.user}>
+                <h5 className={style.author}>{author}</h5>
+                <p className={style.spacing}>{authorId}</p>
+                <p className={style.spacing}>{pubDate}</p>
+            </div>
             <p className={style.title}>{title}</p>
             <p className={style.description}>{description}</p>
             <img src={mainImage} alt='some image' className={style.mainImage} />
