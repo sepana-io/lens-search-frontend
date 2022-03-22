@@ -6,11 +6,17 @@
     height: calc(100vh - 150px);
     min-width: 150px;
     max-width: 300px;
-    background-color: $color-secondary;
+    background-color: $color-white;
     position: sticky;
     top: 100px;
+
+    h3 {
+        font-weight: 700;
+        font-size: 24px;
+        color: $color-border;
+    }
     h4 {
         margin-bottom: 20px;
-        color: $color-primary;
+        color: $color-border;
     }
 }
