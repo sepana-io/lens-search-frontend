@@ -1,34 +1,26 @@
 import TextField from '@mui/material/TextField';
 import style from './header.module.scss';
-import Logo from '../../assets/logo/logo.svg';
-import Image from 'next/image';
-
+import Logo from '@/assets/logo/logo.svg';
+import Input from '@mui/material/Input';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from "@/assets/icons/search_24px.svg";
 const Header = () => {
-    // const routes = [
-    //     { title: 'Home', path: '/' },
-    //     { title: 'About', path: '/' },
-    // ]
-
     return (
         <>
             <div className={style.wrapper}>
                 <div className={style.both}>
-                    {/* <Image src={logo} alt='logo' /> */}
                     <div className={style.logo}>
-                    <Logo />
-
+                        <Logo />
                     </div>
-                    {/* <h1 >LENS.SEPANA.IO</h1> */}
-                    <TextField id="outlined-basic" label="Outlined" variant="outlined" className={style.search}/>
+                    <div style={{ display: 'flex', alignItems: 'center', width: "40%" }}>
+                        <input type="text" className={style.search} />
+                        <span><div className={style.logoSearch} ><SearchIcon /></div>
+                        </span>
+                    </div>
+
                 </div>
-                {/* {routes.map(item => {
-                    return <a key={item.title} className={style.link} href={item.path}>{item.title}</a>
-                })} */}
             </div>
-            <div className={style.fade}>
-
-            </div>
-
+            <div className={style.fade} />
         </>
     )
 }

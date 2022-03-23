@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import { Grid } from '@mui/material'
-import Filters from '@/components/common/filters/filters'
 import Post from '@/components/common/post/post'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useState } from 'react'
@@ -17,7 +16,6 @@ const Home: NextPage = () => {
     return (
         <Grid container justifyContent='space-between' style={{ width: '100%' }}>
             <Grid item xs={4}>
-                {/* <Filters /> */}
                 <FilterResult />
             </Grid>
 

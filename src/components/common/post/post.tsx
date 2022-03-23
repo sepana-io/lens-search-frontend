@@ -17,7 +17,6 @@ const Post = ({ user }: Props) => {
     console.log('user', user)
     return <div className={style.wrapper}>
         <div>
-            {/* Avatar */}
             <img src={avatar} alt='Avatar' className={style.avatar} />
         </div>
         <div className={style.wrapper2}>

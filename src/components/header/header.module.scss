@@ -24,19 +24,47 @@
     top: 72px;
     background: linear-gradient(180deg, $color-primary, transparent);
 }
-.search{
+.search {
     border-radius: 32px;
-    background-color: #F4F8FF;
-    max-width: 418px;
+    background-color: #f4f8ff;
     width: 100%;
+    height: 40px;
+    border: transparent;
+    padding: 0px 45px 0px 20px;
+    &:hover {
+        border: 1px solid #e5e5e5;
+    }
+    &:focus {
+        outline-width: 0;
+        border: 1px solid #e5e5e5;
+    }
 }
-.logo{
+
+.logo {
     position: absolute;
     left: 10px;
-    color: $color-secondary;
+    display: flex;
+    align-items: center;
 }
-.both{
+.both {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: inherit;
+}
+
+.logoSearch {
+    margin-left: -38px;
+    height: 34px;
+    width: 34px;
+    border-radius: 360px;
+    background-color: #abfe2d;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: #cbff7d;
+    }
 }
