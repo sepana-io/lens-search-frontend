@@ -1,7 +1,7 @@
-export interface User {
+export interface Post {
     avatar: string,
     author: string,
-    authorId: string,
+    profileId: string,
     pubDate: string,
     title: string,
     description: string,

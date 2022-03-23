@@ -8,7 +8,7 @@ import style from './filters.module.scss'
 
 const fliterData = [
   { label: 'Content', inputs: [{ label: 'All of these words', key: "text", extra: { search_type: "all_words" } }, { label: 'Exact phrase', key: "text", extra: { search_type: "exact_phrase" } }, { label: 'Any of these words', key: "text", extra: { search_type: "any_words" } }, { label: 'These hashtags', key: "text", extra: { search_type: "hashtags" } }] },
-  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these users', key: "from_users" }, { label: 'Mentioning these users', key: "mention_users" }, { label: 'These hashtags', key: "these_hashtags" }] },
+  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these profiles', key: "from_users" }, { label: 'To these profiles', key: "these_profiles" }, { label: 'Mentioning these profiles', key: "mention_profiles" }] },
   { label: 'Status', inputs: [{ label: 'Minimum Reclouts', key: "min_reclouts" }, { label: 'Minimum Likes', key: "min_likes" }, { label: 'Minimum Comments', key: "min_comments" }] },
   {
     label: 'NFT', inputs: [
@@ -26,7 +26,7 @@ const fliterData = [
     ]
   },
   // { label: 'Bio', inputs: [{ label: 'Include these words', key: "bio_search" }] },
- 
+
   // { label: 'Diamonds', inputs: [{ label: 'Minimum Diamonds', key: "min_diamonds" }] },
   // { label: 'Creator Coin', inputs: [{ label: 'Minimum Coins', key: "min_coin_price" }, { label: 'Minimum Coins in Circulation', key: "min_coin_in_circulation" }, { label: 'Minimum USD Market Cap', key: "min_usd_cap" }] },
   // { label: 'DAO', inputs: [{ label: 'Minimum DAO holders', key: "min_dao_holder" }, { label: 'Total DAO coins held', key: "min_total_dao_coins" }] },
@@ -70,13 +70,13 @@ const FilterResult = ({ title = 'Filter results by', onClose, search, dispatch }
 
   const submitForm = () => {
     let temp = { ...queryObj }
-    let url = `/deso/posts?${queryObjToString(temp)}`
+    let url = `/posts?${queryObjToString(temp)}`
     history.push(url)
     onClose && onClose()
   }
 
   const resetForm = () => {
-    history.push('/deso/posts?')
+    history.push('/posts?')
     setTimeout(() => { setReset(false) }, 100)
   }
 
