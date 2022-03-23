@@ -17,8 +17,8 @@ const getIcon = (label: string) => {
   switch (label) {
     case 'Content': return <Content />
     case 'Bio': return <Bio />
-    case 'Users': return <Users />
-    case 'Engagement': return <Engagement />
+    case 'Profiles': return <Users />
+    case 'Status': return <Engagement />
     case 'Diamonds': return <Daimonds />
     case 'Creator Coin': return <Coin />
     case 'NFT': return <NFT />
@@ -88,7 +88,7 @@ const Filter = (props: FilterProps) => {
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 10, cursor: 'pointer' }} onClick={() => handleAdd()}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
           <div style={{ width: 20, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-            {/* {getIcon(label)} */}
+            {getIcon(label)}
           </div>
           <p style={{ marginLeft: 10, fontWeight: 700, fontSize: 18 }}>{label}</p>
         </div>
@@ -96,9 +96,9 @@ const Filter = (props: FilterProps) => {
       </div>
       <div style={{ maxHeight: isActive ? 700 : 0, transition: 'max-height 0.3s ease-in-out', overflow: 'hidden' }}>
         {inputs.map((item: any, index: number) => {
-          // if (label === 'NFT') {
-          //   return <MultiInputs data={item} query={query} onChange={onChange} key={`fi${index}`} onFocus={handleRefresh} resetIndex={resetIndex} search={search} onKeyDown={onKeyDown} />
-          // }
+          if (label === 'NFT') {
+            return <MultiInputs data={item} query={query} onChange={onChange} key={`fi${index}`} onFocus={handleRefresh} resetIndex={resetIndex} search={search} onKeyDown={onKeyDown} />
+          }
           return <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index} onFocus={handleRefresh} type={getType()} onKeyDown={onKeyDown} />
         })}
         {/* <PRRFilter label={label} getState={getState}/> */}
@@ -260,7 +260,7 @@ const FilterInputs = ({ item, onChange, index, onFocus, type, onKeyDown, initial
   }
 
   return (
-    <div style={{ padding: 10, marginLeft: 10 }}>
+    <div className={style.singleInput}>
       {type === 'date' ?
         <TextField
           onFocus={() => onFocus(index)}

@@ -6,13 +6,12 @@ import { Provider } from 'react-redux'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  return <div style={{ maxWidth: 1200 }}>
-    <Provider store={store}>
-      <Header />
+  return <Provider store={store}>
+    <Header />
+    <div style={{ maxWidth: 1200 }}>
       <Component {...pageProps} />
-    </Provider>
-
-  </div>
+    </div>
+  </Provider>
 }
 
 const initialState = {

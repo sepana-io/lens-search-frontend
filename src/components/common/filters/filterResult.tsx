@@ -8,6 +8,8 @@ import style from './filters.module.scss'
 
 const fliterData = [
   { label: 'Content', inputs: [{ label: 'All of these words', key: "text", extra: { search_type: "all_words" } }, { label: 'Exact phrase', key: "text", extra: { search_type: "exact_phrase" } }, { label: 'Any of these words', key: "text", extra: { search_type: "any_words" } }, { label: 'These hashtags', key: "text", extra: { search_type: "hashtags" } }] },
+  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these users', key: "from_users" }, { label: 'Mentioning these users', key: "mention_users" }, { label: 'These hashtags', key: "these_hashtags" }] },
+  { label: 'Status', inputs: [{ label: 'Minimum Reclouts', key: "min_reclouts" }, { label: 'Minimum Likes', key: "min_likes" }, { label: 'Minimum Comments', key: "min_comments" }] },
   {
     label: 'NFT', inputs: [
       { 'Availability': [{ label1: 'Bidding', label2: 'Sold', key: "nft_availability", checkBox: true }] },
@@ -23,12 +25,11 @@ const fliterData = [
       },
     ]
   },
-  { label: 'Bio', inputs: [{ label: 'Include these words', key: "bio_search" }] },
-  { label: 'Users', inputs: [{ label: 'From these users', key: "from_users" }, { label: 'Mentioning these users', key: "mention_users" }] },
-  { label: 'Engagement', inputs: [{ label: 'Minimum Reclouts', key: "min_reclouts" }, { label: 'Minimum Likes', key: "min_likes" }, { label: 'Minimum Comments', key: "min_comments" }] },
-  { label: 'Diamonds', inputs: [{ label: 'Minimum Diamonds', key: "min_diamonds" }] },
-  { label: 'Creator Coin', inputs: [{ label: 'Minimum Coins', key: "min_coin_price" }, { label: 'Minimum Coins in Circulation', key: "min_coin_in_circulation" }, { label: 'Minimum USD Market Cap', key: "min_usd_cap" }] },
-  { label: 'DAO', inputs: [{ label: 'Minimum DAO holders', key: "min_dao_holder" }, { label: 'Total DAO coins held', key: "min_total_dao_coins" }] },
+  // { label: 'Bio', inputs: [{ label: 'Include these words', key: "bio_search" }] },
+ 
+  // { label: 'Diamonds', inputs: [{ label: 'Minimum Diamonds', key: "min_diamonds" }] },
+  // { label: 'Creator Coin', inputs: [{ label: 'Minimum Coins', key: "min_coin_price" }, { label: 'Minimum Coins in Circulation', key: "min_coin_in_circulation" }, { label: 'Minimum USD Market Cap', key: "min_usd_cap" }] },
+  // { label: 'DAO', inputs: [{ label: 'Minimum DAO holders', key: "min_dao_holder" }, { label: 'Total DAO coins held', key: "min_total_dao_coins" }] },
   { label: 'Date', inputs: [{ label: 'From', key: "from_date" }, { label: 'To', key: "to_date" }] },
 
 ]

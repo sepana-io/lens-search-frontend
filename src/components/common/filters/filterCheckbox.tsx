@@ -64,7 +64,7 @@ export const FilterCheckBox = ({ initialVlue, item, onChange, onKeyDown }: Filte
             {checked1 && <CheckIcon style={{ marginRight: 5 }} />}
             <p style={{ fontSize: 14, fontWeight: 400, color: checked1 ? '#fff' : '#3772FF' }}>{item.label1}</p>
         </div>
-        <div className={c(style.FollowWrapperSmall, checked1 && style.checked)} onClick={handle2Click}>
+        <div className={c(style.FollowWrapperSmall, checked2 && style.checked)} onClick={handle2Click}>
             {checked2 && <CheckIcon style={{ marginRight: 5 }} />}
             <p style={{ fontSize: 14, fontWeight: 400, color: checked2 ? '#fff' : '#3772FF' }}>{item.label2}</p>
         </div>
@@ -126,7 +126,7 @@ export const FilterNoCheckBox = ({ initialVlue, item, onChange, onKeyDown }: Fil
         <div className={c(style.FollowWrapperSmall, checked1 && style.checked)} onClick={handle1Click}>
             <p style={{ fontSize: 12, fontWeight: 400, color: checked1 ? '#fff' : '#3772FF' }}>{item.label1}</p>
         </div>
-        <div className={c(style.FollowWrapperSmall, checked1 && style.checked)} onClick={handle2Click}>
+        <div className={c(style.FollowWrapperSmall, checked2 && style.checked)} onClick={handle2Click}>
             <p style={{ fontSize: 12, fontWeight: 400, color: checked2 ? '#fff' : '#3772FF' }}>${item.label2}</p>
         </div>
     </div>

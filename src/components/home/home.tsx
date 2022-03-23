@@ -16,12 +16,12 @@ const Home: NextPage = () => {
 
     return (
         <Grid container justifyContent='space-between' style={{ width: '100%' }}>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
                 {/* <Filters /> */}
                 <FilterResult />
             </Grid>
 
-            <Grid item xs={9}>
+            <Grid item xs={8}>
                 <div>
                     <InfiniteScroll
                         dataLength={mock.length} //This is important field to render the next data

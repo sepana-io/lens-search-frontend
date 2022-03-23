@@ -1,14 +1,14 @@
 @import "../../../styles/mixins";
 
 .wrapper {
-    height: 55px;
-    background-color: #0070f3;
-    padding: 16px;
-    position: sticky;
+    height: 72px;
+    background-color: $color-white;
+    position: fixed;
     top: 0px;
+    left: 0px;
+    right: 0px;
 }
 .link {
-    color: $color-white;
     margin-left: 16px;
     opacity: 0.8;
     &:hover {
@@ -18,8 +18,25 @@
 }
 .fade {
     height: 20px;
-    margin-bottom: 16px;
-    position: sticky;
-    top: 55px;
+    left: 0px;
+    right: 0px;
+    position: fixed;
+    top: 72px;
     background: linear-gradient(180deg, $color-primary, transparent);
+}
+.search{
+    border-radius: 32px;
+    background-color: #F4F8FF;
+    max-width: 418px;
+    width: 100%;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+    color: $color-secondary;
+}
+.both{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

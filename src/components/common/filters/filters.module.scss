@@ -1,7 +1,7 @@
 @import "../../../../styles/mixins";
 
 .FilterWrapper {
-    margin-top: 20px;
+    margin-top: 30px;
     transition: all 0.3s ease-in;
     @media screen and (max-width: 1023px) {
         margin-top: 12px;
@@ -12,7 +12,7 @@
     width: 146px;
     height: 39px;
     border-radius: 32px;
-    background-color: rgb(55, 114, 255);
+    background-color: $color-secondary;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -60,9 +60,16 @@
 
 .Wrapper {
     height: auto;
+    max-height: 100vh;
     min-width: 250px;
     width: 373px;
     background-color: #fff;
+    position: sticky;
+    top: 84px;
+    p{
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
 }
 
 .wrapper {
@@ -84,4 +91,10 @@
         margin-bottom: 20px;
         color: $color-border;
     }
+}
+.singleInput{
+    padding: 10px; 
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px; 
 }
