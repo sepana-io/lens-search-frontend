@@ -7,12 +7,13 @@ import { mock } from './mockData'
 import FilterResult from '../common/filters/filterResult'
 import useData from './hook'
 import style from './home.module.scss'
+import TopNavBar from '../common/topNavbar/topNavbar'
 const Home: NextPage = () => {
 
     const [page, setPage] = useState<number>(1)
     const [hasMore, setHasMore] = useState<boolean>(true)
 
-
+    const topData:any[] = ['Top', 'Latest', 'NFT', 'Links', 'Photo', 'Video']
     const data = useData(page);
 
     return (
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
             </Grid>
 
             <Grid item xs={8}>
+                <TopNavBar data={topData}/>
                 <div>
                     <InfiniteScroll
                         dataLength={data.length} //This is important field to render the next data

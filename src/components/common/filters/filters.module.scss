@@ -10,11 +10,12 @@
 
 .FilterBtn {
     width: 146px;
-    height: 39px;
+    // height: 39px;
     border-radius: 32px;
     background-color: $color-secondary;
     display: flex;
     justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: all 0.3s ease-in;
     &:hover {

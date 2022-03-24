@@ -67,3 +67,24 @@ export const objIsEqual = (object1: any, object2: any) => {
 
   return true;
 }
+const getCorrectValue = (key: string, val: any) => {
+  if (key === 'value_in_clout') {
+    if (val === 'accepted_bid') return 's_value_in_deso'
+    if (val === 'lowest_bid') return 'i_value_in_deso'
+  }
+  return key
+}
+export const queryStringToObject = (urlPaths: string) => {
+  let x = (urlPaths.includes("?") ? urlPaths.split("?")[1] : urlPaths).split('&')
+  let querryObj:any = {}
+  for (let i = 0; i < x.length; i++) {
+    const param = x[i].split('=')
+    let key = param[0]
+    const val = param[1]
+    if (val !== undefined) {
+      querryObj[getCorrectValue(key, val)] = val;
+    }
+  }
+  return querryObj
+  // return Object.fromEntries(new URLSearchParams(urlPaths.includes("?") ? urlPaths.split("?")[1] : urlPaths))
+}

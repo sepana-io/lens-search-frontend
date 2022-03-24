@@ -10,7 +10,8 @@
     display: flex;
     margin: 8px 30px 0px 30px;
     padding: 15px;
-    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .wrapper2 {
     padding-left: 10px;
@@ -22,6 +23,7 @@
 }
 .user{
     display: flex;
+    align-items: center;
     color: #979797;
     font-size: 15px;
     .author {
@@ -59,4 +61,19 @@
     padding-left: 8px;
     text-transform: capitalize;
     color: $color-grey;
+}
+.FilterBtn {
+    width: 100px;
+    height: 24px;
+    border-radius: 12px;
+    margin-left: 8px;
+    background-color: $color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &:hover {
+        opacity: 0.9;
+    }
 }

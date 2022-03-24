@@ -6,6 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from "@/assets/icons/search_24px.svg";
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
+import { Grid } from '@mui/material';
 
 const Header = () => {
     const router = useRouter();
@@ -31,7 +32,23 @@ const Header = () => {
     return (
         <>
             <div className={style.wrapper}>
-                <div className={style.both}>
+                <div style={{maxWidth: 1200, marginRight: 'auto', marginLeft: 'auto'}}>
+                    <Grid container alignItems='center' spacing={2} direction='row' style={{ marginTop: 0 }}>
+                        <Grid item xs={4} className={style.logo}>
+                            <Logo />
+
+                        </Grid>
+                        <Grid item xs={8} className={style.searchGrid}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '50vw' }}>
+                                <input type="text" className={style.search} onKeyDown={handleSearch} onChange={(e: any) => setText(e.target.value)} value={text} />
+                                <span><div className={style.logoSearch} ><SearchIcon /></div>
+                                </span>
+                            </div>
+                        </Grid>
+                        {/* <Grid xs={3}/> */}
+
+                    </Grid>
+                    {/* <div className={style.both}>
                     <div className={style.logo}>
                         <Logo />
                     </div>
@@ -41,9 +58,10 @@ const Header = () => {
                         </span>
                     </div>
 
+                </div> */}
                 </div>
             </div>
-            <div className={style.fade} />
+            {/* <div className={style.fade} /> */}
         </>
     )
 }

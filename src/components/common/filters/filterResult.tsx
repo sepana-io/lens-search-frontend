@@ -91,7 +91,7 @@ const FilterResult = ({ title = 'Filter results by', onClose, search, dispatch }
         </div>
 
       </div>
-      <p style={{ fontSize: 16, fontWeight: 400, color: '#3772FF', textAlign: 'right', marginRight: 20, cursor: 'pointer' }} onClick={expandAll}>{viewAll ? 'Collapse' : 'Expand'} all</p>
+      <p style={{ fontSize: 16, fontWeight: 400, color: '#0E501DE3', textAlign: 'right', marginRight: 20, cursor: 'pointer' }} onClick={expandAll}>{viewAll ? 'Collapse' : 'Expand'} all</p>
 
       <div style={{ overflowY: 'auto', height: 'calc(100vh - 197px)' }}>
         {!reset && fliterData.map((item, index) => {
@@ -100,10 +100,10 @@ const FilterResult = ({ title = 'Filter results by', onClose, search, dispatch }
         })}
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', paddingBottom: 15, marginTop: 20 }}>
           <div className={style.FilterBtn} onClick={submitForm}>
-            <p style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginTop: 9 }}>Apply Filters</p>
+            <p style={{ fontSize: 14, fontWeight: 600, color: '#ABFE2D' }}>Apply Filters</p>
           </div>
-          <div style={{ height: 39, display: 'flex', justifyContent: 'center', cursor: 'pointer' }} onClick={resetForm}>
-            <p style={{ fontSize: 16, fontWeight: 400, color: '#3772FF', marginTop: 9 }}>Reset</p>
+          <div style={{ height: 39, display: 'flex', justifyContent: 'center', cursor: 'pointer', alignItems: 'center' }} onClick={resetForm}>
+            <p style={{ fontSize: 16, fontWeight: 400, color: '#7EA186'}}>Reset</p>
           </div>
         </div>
       </div>
