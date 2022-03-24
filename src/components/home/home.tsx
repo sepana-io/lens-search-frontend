@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { mock } from './mockData'
 import FilterResult from '../common/filters/filterResult'
 import useData from './hook'
-
+import style from './home.module.scss'
 const Home: NextPage = () => {
 
     const [page, setPage] = useState<number>(1)
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     const data = useData(page);
 
     return (
-        <Grid container justifyContent='space-between' style={{ width: '100%' }}>
+        <Grid container justifyContent='space-between' style={{ width: '100%', marginTop: 80 }}>
             <Grid item xs={4}>
                 <FilterResult />
             </Grid>
@@ -27,8 +27,12 @@ const Home: NextPage = () => {
                         dataLength={data.length} //This is important field to render the next data
                         next={() => setPage(page + 1)}
                         hasMore={hasMore}
-                        loader={<h3>Loading</h3>}
+                        loader={<div className={style.wrapper}>
+                            <h3>Loading</h3>
+                        </div>
+                        }
                     >
+
                         {data.map(item => {
                             return <Post key={item._id} post={item} />
                         })}
