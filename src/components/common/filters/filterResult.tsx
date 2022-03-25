@@ -30,6 +30,7 @@ const fliterData = [
   // { label: 'Diamonds', inputs: [{ label: 'Minimum Diamonds', key: "min_diamonds" }] },
   // { label: 'Creator Coin', inputs: [{ label: 'Minimum Coins', key: "min_coin_price" }, { label: 'Minimum Coins in Circulation', key: "min_coin_in_circulation" }, { label: 'Minimum USD Market Cap', key: "min_usd_cap" }] },
   // { label: 'DAO', inputs: [{ label: 'Minimum DAO holders', key: "min_dao_holder" }, { label: 'Total DAO coins held', key: "min_total_dao_coins" }] },
+  { label: 'App', inputs: [{ label: 'App Name', key: "app_name" }] },
   { label: 'Date', inputs: [{ label: 'From', key: "from_date" }, { label: 'To', key: "to_date" }] },
 
 ]
@@ -83,27 +84,27 @@ const FilterResult = ({ title = 'Filter results by', onClose, search, dispatch }
   const expandAll = () => setViewAll(!viewAll)
 
   return <div className={style.Wrapper}>
-    <div style={{ position: 'sticky', top: 65 }}>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <p style={{ marginTop: 20, marginLeft: 15, fontSize: 24, fontWeight: 700, marginBottom: 10 }}>{title}</p>
+    <div className={style.sticky65}>
+      <div className={style.flexrow}>
+        <p className={style.title}>{title}</p>
         <div className={style.BarIcon}>
           {/* <Close size={30} onClick={onClose} color={'primary'} /> */}
         </div>
 
       </div>
-      <p style={{ fontSize: 16, fontWeight: 400, color: '#0E501DE3', textAlign: 'right', marginRight: 20, cursor: 'pointer' }} onClick={expandAll}>{viewAll ? 'Collapse' : 'Expand'} all</p>
+      <p className={style.expandAll} onClick={expandAll}>{viewAll ? 'Collapse' : 'Expand'} all</p>
 
-      <div style={{ overflowY: 'auto', height: 'calc(100vh - 197px)' }}>
+      <div className={style.overflow}>
         {!reset && fliterData.map((item, index) => {
           return <Filter query={queryObj} viewAll={viewAll} label={item.label} handleActive={handleActive} activeIndex={active} inputs={item.inputs} onChange={onChange} onKeyDown={submitForm}
             key={`fr${index}`} index={index} search={search} getState={(data: any) => { dispatch({ type: 'FILTERQUERY', data: JSON.stringify(data) }) }} />
         })}
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', paddingBottom: 15, marginTop: 20 }}>
+        <div className={style.twoButtons}>
           <div className={style.FilterBtn} onClick={submitForm}>
-            <p style={{ fontSize: 14, fontWeight: 600, color: '#ABFE2D' }}>Apply Filters</p>
+            <p className={style.applyFilter}>Apply Filters</p>
           </div>
-          <div style={{ height: 39, display: 'flex', justifyContent: 'center', cursor: 'pointer', alignItems: 'center' }} onClick={resetForm}>
-            <p style={{ fontSize: 16, fontWeight: 400, color: '#7EA186' }}>Reset</p>
+          <div className={style.outer} onClick={resetForm}>
+            <p className={style.reset}>Reset</p>
           </div>
         </div>
       </div>

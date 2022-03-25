@@ -9,9 +9,11 @@ import Date from '../../../assets/icons/Date.svg'
 import Engagement from '../../../assets/icons/Engagement.svg'
 import Users from '../../../assets/icons/Users.svg'
 import NFT from '../../../assets/icons/nft.svg'
-import DAO from '../../../assets/icons/clarity_group-line.svg'
+import DAO from '../../../assets/icons/clarity_group-line.svg';
+import App from '../../../assets/icons/app.svg';
 import { FilterCheckBox, FilterNoCheckBox } from './filterCheckbox'
 import style from './filters.module.scss'
+import Autocomplete from '@mui/material/Autocomplete';
 
 const getIcon = (label: string) => {
   switch (label) {
@@ -23,6 +25,7 @@ const getIcon = (label: string) => {
     case 'Creator Coin': return <Coin />
     case 'NFT': return <NFT />
     case "DAO": return <DAO />
+    case 'App': return <App />
     default: return <Date />
   }
 }
@@ -69,8 +72,17 @@ const Filter = (props: FilterProps) => {
     if (label === 'Date') return 'date'
     if (label === 'NFT') return 'number'
     if (label === 'DAO') return 'number'
+    if (label === 'App') return 'dropdown'
     return 'text'
   }
+
+  const options = [{ label: 'The Shawshank Redemption', year: 1994 },
+  { label: 'The Godfather', year: 1972 },
+  { label: 'The Godfather: Part II', year: 1974 },
+  { label: 'The Dark Knight', year: 2008 },
+  { label: '12 Angry Men', year: 1957 },
+  { label: "Schindler's List", year: 1993 },
+  { label: 'Pulp Fiction', year: 1994 }];
 
   const getInitialValues = (item: any) => {
     let q_keys = query ? Object.keys(query) : []
@@ -86,8 +98,8 @@ const Filter = (props: FilterProps) => {
   return (
     <div className={style.FilterWrapper}>
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginLeft: 10, marginRight: 10, cursor: 'pointer' }} onClick={() => handleAdd()}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-          <div style={{ width: 20, justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+        <div className={style.flexrowCenter}>
+          <div className={style.icon}>
             {getIcon(label)}
           </div>
           <p style={{ marginLeft: 10, fontWeight: 700, fontSize: 18 }}>{label}</p>
@@ -99,7 +111,7 @@ const Filter = (props: FilterProps) => {
           if (label === 'NFT') {
             return <MultiInputs data={item} query={query} onChange={onChange} key={`fi${index}`} onFocus={handleRefresh} resetIndex={resetIndex} search={search} onKeyDown={onKeyDown} />
           }
-          return <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index} onFocus={handleRefresh} type={getType()} onKeyDown={onKeyDown} />
+          return <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index} onFocus={handleRefresh} type={getType()} options={options} onKeyDown={onKeyDown} />
         })}
         {/* <PRRFilter label={label} getState={getState}/> */}
       </div>
@@ -143,14 +155,14 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
       {data[keyLabel].map((v: any, i: number) => {
         return <div key={`keyla${i}`}>
           <p style={{ fontWeight: 500, fontSize: 16, marginLeft: 15 }}>{clearText(v.title)}</p>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <div className={style.flexrow}>
             {v.data.map((item: any, index: number) => {
               if (item.checkBox) {
                 return <FilterCheckBox initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
               }
               else {
                 if (index === 1) {
-                  return <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }} key={`keyl${index}`}>
+                  return <div className={style.flexrowCenter} key={`keyl${index}`}>
                     <p>to</p>
                     <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} index={index}
                       onFocus={onFocus} type={'number'} onKeyDown={onKeyDown} />
@@ -181,7 +193,7 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
 
   return <div>
     <p style={{ fontWeight: 700, fontSize: 16, marginLeft: 15, marginTop: 5 }}>{clearText(keyLabel)}</p>
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div className={style.flexrow}>
       {data[keyLabel].map((item: any, index: number) => {
         if (item.checkBox) {
           return <FilterNoCheckBox initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
@@ -189,11 +201,11 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
       })}
     </div>
 
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div className={style.flexrow}>
       {data[keyLabel].map((item: any, index: number) => {
         if (item.checkBox === undefined) {
           if (index === 2) {
-            return <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+            return <div className={style.flexrowCenter}>
               <p>to</p>
               <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index}
                 onFocus={onFocus} type={'number'} onKeyDown={onKeyDown} />
@@ -217,9 +229,10 @@ interface FilterInputsProps {
   type: string;
   onKeyDown: () => void;
   initialVlue: string;
+  options?: any[];
 }
 
-const FilterInputs = ({ item, onChange, index, onFocus, type, onKeyDown, initialVlue = "" }: FilterInputsProps) => {
+const FilterInputs = ({ item, onChange, index, onFocus, type, onKeyDown, initialVlue = "", options = [] }: FilterInputsProps) => {
   const [value, setValue] = useState<number | string>(initialVlue)
   const handleChange = (e: any) => {
     let val = e.target.value
@@ -258,39 +271,51 @@ const FilterInputs = ({ item, onChange, index, onFocus, type, onKeyDown, initial
       onKeyDown()
     }
   }
+  const typeIdentifyer = () => {
+    if (type === 'date') {
+      return <TextField
+        onFocus={() => onFocus(index)}
+        value={value}
+        id="outlined-multiline-flexible"
+        label={item.label}
+        type={type}
+        InputLabelProps={{
+          shrink: true,
+          style: { fontSize: 14 }
+        }}
+        onChange={handleChange}
+        variant="outlined"
+        size="small"
+        onKeyDown={handleKeyDown}
+      />
+    } else if (type === 'dropdown') {
+      return <Autocomplete
+      disablePortal
+      id="combo-box-demo"
+      options={options}
+      renderInput={(params) => <TextField {...params} label="App Name" onKeyDown={handleKeyDown} onChange={handleChange}
+      />}
+    />
+    }
+    return <TextField
+      onFocus={() => onFocus(index)}
+      value={value}
+      id="outlined-multiline-flexible"
+      label={item.label}
+      type={type}
+      InputLabelProps={{
+        style: { fontSize: 14 }
+      }}
+      onChange={handleChange}
+      variant="outlined"
+      size="small"
+      onKeyDown={handleKeyDown}
+    />
+  }
 
   return (
     <div className={style.singleInput}>
-      {type === 'date' ?
-        <TextField
-          onFocus={() => onFocus(index)}
-          value={value}
-          id="outlined-multiline-flexible"
-          label={item.label}
-          type={type}
-          InputLabelProps={{
-            shrink: true,
-            style: { fontSize: 14 }
-          }}
-          onChange={handleChange}
-          variant="outlined"
-          size="small"
-          onKeyDown={handleKeyDown}
-        /> :
-        <TextField
-          onFocus={() => onFocus(index)}
-          value={value}
-          id="outlined-multiline-flexible"
-          label={item.label}
-          type={type}
-          InputLabelProps={{
-            style: { fontSize: 14 }
-          }}
-          onChange={handleChange}
-          variant="outlined"
-          size="small"
-          onKeyDown={handleKeyDown}
-        />}
+      {typeIdentifyer()}
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import UnderlineIcon from '../../../assets/icons/Active.svg'
 import { useRouter } from 'next/router'
 import { objIsEqual, queryObjToString, queryStringToObject } from '../../../utils/util'
+import { borderRadius } from '@mui/system'
 interface Props {
   data: any[]
 }
@@ -34,7 +35,7 @@ const TopNavBar = ({ data = [] }: Props) => {
   }, [asPath])
 
   return (
-    <div style={{ width: '100%', maxWidth: 500, height: 50, display: 'flex', justifyContent: 'space-around', paddingTop: 20 }}>
+    <div style={{ width: '100%', maxWidth: 500, display: 'flex', justifyContent: 'space-around', paddingTop: 20 }}>
       {data.map((item, index): any => <TopicName key={index} label={item} active={index === activeIndex} onClick={() => onChangeTab(item.toLowerCase())} />)}
     </div>
   )
@@ -45,8 +46,8 @@ export default TopNavBar;
 const TopicName = ({ label, active = false, onClick }: any) => {
   return <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }}
     onClick={() => onClick()}>
-    <p style={{ marginBottom: 5, width: 70, textAlign: 'center', color: active ? '#0E501D' : '#000', fontWeight: 700, fontSize: 16 }}>{label}</p>
+    <p style={{ marginBottom: 0, width: 70, textAlign: 'center', color: active ? '#0E501D' : '#000', fontWeight: 700, fontSize: 16}}>{label}
     {active && <UnderlineIcon />}
-    <UnderlineIcon />
+    </p>
   </div>
 }

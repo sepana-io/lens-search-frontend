@@ -71,6 +71,30 @@
         margin-bottom: 0px;
         margin-top: 0px;
     }
+    .sticky65{
+        position: sticky; 
+        top: 65px;
+    }
+    .title{
+        margin-top: 20px;
+        margin-left: 15px;
+        font-size: 24px;
+        font-weight: 700; 
+        margin-bottom: 10px;
+    }
+    .overflow{
+        overflow-y: auto;
+        height: calc(100vh - 197px);
+    }
+    .expandAll{
+        font-size: 16px;
+        font-weight: 400; 
+        color: #0E501DE3; 
+        text-align: right; 
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    
 }
 
 .wrapper {
@@ -99,3 +123,42 @@
     margin-bottom: 5px;
     margin-top: 5px; 
 }
+.flexrow{
+    display: flex;
+    flex-direction: row;
+}
+.flexrowCenter{
+    @extend .flexrow;
+    align-items: center;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+}
+.twoButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 15px; 
+    margin-top: 20px;
+    .applyFilter{
+        font-size: 14px; 
+        font-weight: 600; 
+        color: #ABFE2D;
+    }
+    .outer{
+        height: 39px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer; 
+        align-items: center;
+    }
+    .reset{
+        font-size: 16px;
+        font-weight: 400;
+        color: #7EA186;
+    }
+}
+
