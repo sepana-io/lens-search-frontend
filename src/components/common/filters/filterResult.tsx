@@ -8,23 +8,23 @@ import style from './filters.module.scss'
 
 const fliterData = [
   { label: 'Content', inputs: [{ label: 'All of these words', key: "text", extra: { search_type: "all_words" } }, { label: 'Exact phrase', key: "text", extra: { search_type: "exact_phrase" } }, { label: 'Any of these words', key: "text", extra: { search_type: "any_words" } }, { label: 'These hashtags', key: "text", extra: { search_type: "hashtags" } }] },
-  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these profiles', key: "from_users" }, { label: 'To these profiles', key: "these_profiles" }, { label: 'Mentioning these profiles', key: "mention_profiles" }] },
+  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these profiles', key: "from_users" }, { label: 'Mentioning these profiles', key: "mention_profiles" }] },
   { label: 'Status', inputs: [{ label: 'Minimum Reclouts', key: "min_reclouts" }, { label: 'Minimum Likes', key: "min_likes" }, { label: 'Minimum Comments', key: "min_comments" }] },
-  {
-    label: 'NFT', inputs: [
-      { 'Availability': [{ label1: 'Bidding', label2: 'Sold', key: "nft_availability", checkBox: true }] },
-      { 'Initial_bid': [{ label1: 'USD', label2: 'DESO', key: "i_value_in_deso", checkBox: true, value: 'lowest_bid' }, { label: 'Min', key: "min_lowest_bid" }, { label: 'Max', key: "max_lowest_bid" }] },
-      { 'Selling_price': [{ label1: 'USD', label2: 'DESO', key: "s_value_in_deso", checkBox: true, value: 'accepted_bid' }, { label: 'Min', key: "min_accepted_bid" }, { label: 'Max', key: "max_accepted_bid" }] },
-      {
-        'NFT_Details': [
-          // { title: 'Availability', data: [{ label1: 'Bidding',label2: 'Sold', key: "nft_availability", checkBox:true }] },
-          { title: 'Creator_royalty_%', data: [{ label: 'Min', key: "min_nft_royalty_to_creator", min: 0, max: 100 }, { label: 'Max', key: "max_nft_royalty_to_creator", min: 0, max: 100 }] },
-          { title: 'Creator-coin_royalty_%', data: [{ label: 'Min', key: "min_nft_royalty_to_coin", min: 0, max: 100 }, { label: 'Max', key: "max_nft_royalty_to_coin", min: 0, max: 100 }] },
-          { title: 'Number_of_copies', data: [{ label: 'Min', key: "min_nft_copies" }, { label: 'Max', key: "max_nft_copies" }] }
-        ]
-      },
-    ]
-  },
+  // {
+  //   label: 'NFT', inputs: [
+  //     { 'Availability': [{ label1: 'Bidding', label2: 'Sold', key: "nft_availability", checkBox: true }] },
+  //     { 'Initial_bid': [{ label1: 'USD', label2: 'DESO', key: "i_value_in_deso", checkBox: true, value: 'lowest_bid' }, { label: 'Min', key: "min_lowest_bid" }, { label: 'Max', key: "max_lowest_bid" }] },
+  //     { 'Selling_price': [{ label1: 'USD', label2: 'DESO', key: "s_value_in_deso", checkBox: true, value: 'accepted_bid' }, { label: 'Min', key: "min_accepted_bid" }, { label: 'Max', key: "max_accepted_bid" }] },
+  //     {
+  //       'NFT_Details': [
+  //         // { title: 'Availability', data: [{ label1: 'Bidding',label2: 'Sold', key: "nft_availability", checkBox:true }] },
+  //         { title: 'Creator_royalty_%', data: [{ label: 'Min', key: "min_nft_royalty_to_creator", min: 0, max: 100 }, { label: 'Max', key: "max_nft_royalty_to_creator", min: 0, max: 100 }] },
+  //         { title: 'Creator-coin_royalty_%', data: [{ label: 'Min', key: "min_nft_royalty_to_coin", min: 0, max: 100 }, { label: 'Max', key: "max_nft_royalty_to_coin", min: 0, max: 100 }] },
+  //         { title: 'Number_of_copies', data: [{ label: 'Min', key: "min_nft_copies" }, { label: 'Max', key: "max_nft_copies" }] }
+  //       ]
+  //     },
+  //   ]
+  // },
   // { label: 'Bio', inputs: [{ label: 'Include these words', key: "bio_search" }] },
 
   // { label: 'Diamonds', inputs: [{ label: 'Minimum Diamonds', key: "min_diamonds" }] },
@@ -103,7 +103,7 @@ const FilterResult = ({ title = 'Filter results by', onClose, search, dispatch }
             <p style={{ fontSize: 14, fontWeight: 600, color: '#ABFE2D' }}>Apply Filters</p>
           </div>
           <div style={{ height: 39, display: 'flex', justifyContent: 'center', cursor: 'pointer', alignItems: 'center' }} onClick={resetForm}>
-            <p style={{ fontSize: 16, fontWeight: 400, color: '#7EA186'}}>Reset</p>
+            <p style={{ fontSize: 16, fontWeight: 400, color: '#7EA186' }}>Reset</p>
           </div>
         </div>
       </div>
