@@ -41,17 +41,12 @@
     }
 }
 
-// .logo {
-//     position: absolute;
-//     left: 10px;
-//     display: flex;
-//     align-items: center;
-// }
-.logo{
+.logo {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
-.searchGrid{
+.searchGrid {
     display: flex;
     justify-content: center;
     max-width: 800px;
