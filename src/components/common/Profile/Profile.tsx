@@ -8,7 +8,7 @@ interface ProfileProps {
 const Profile = ({ post }: ProfileProps) => {
     return <div className={style.wrapper}>
         <div>
-            <ProfileImage item={post.coverPicture} />
+            <ProfileImage item={post} />
 
         </div>
         <div className={style.wrapper2}>
@@ -41,9 +41,13 @@ export default Profile
 
 
 const ProfileImage = (item: any) => {
-    if (item?.item?.original?.mimeType?.includes('image'))
-        return <img src={item.item.original.url} alt='Avatar' className={style.avatar} />
-    return <div className={style.avatar}>
-        <UserLogo />
-    </div>
+    // if (item?.item?.original?.mimeType?.includes('image'))
+    //     return <img src={item.item.original.url} alt='Avatar' className={style.avatar} />
+    // return <div className={style.avatar}>
+    //     <UserLogo />
+    // </div>
+    console.log('ProfileImage', item.item)
+
+    if (item.item.picture.original.url === "") return <div className={style.avatar}> <UserLogo /> </div>
+    return <img src={item.item.picture.original.url} alt='some image' className={style.avatar} />
 }

@@ -8,7 +8,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 // uncomment this for data from dev
-proxyUrl = 'https://lens-api.sepana.io'
+const proxyUrl = 'https://lens-api.sepana.io'
 
 
 app.prepare().then(() => {

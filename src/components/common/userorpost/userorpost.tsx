@@ -16,8 +16,21 @@ const UserOrPost = ({ post }: any) => {
 }
 
 const Media = (item: any) => {
-    if (item.item.mimeType.includes('image'))
-        return <img src={item.item.item} alt='some image' className={style.mainImage} />
+
+    const getURL = (url: string) => {
+        if (url.includes('ipfs')) {
+
+            if (url.includes('https://ipfs')) {
+                return url
+            }
+            let hash = url.split('//')[1]
+            return `https://ipfs.io/ipfs/${hash}`
+        }
+        return url
+    }
+
+    if (item.item.type.includes('image'))
+        return <img src={getURL(item.item.item)} alt='some image' className={style.mainImage} />
     return null
 }
 

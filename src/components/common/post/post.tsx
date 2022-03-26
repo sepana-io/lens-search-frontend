@@ -12,9 +12,12 @@ interface Props {
 const Post = ({ post }: any) => {
 
     return <div className={style.wrapper}>
-        <div className={style.avatar}>
-            <UserLogo />
-        </div>
+
+        {post.profile.picture.original.url === "" ? <div className={style.avatar}> <UserLogo /> </div> :
+            <img src={post.profile.picture.original.url} alt='some image' className={style.avatar} />
+        }
+        {/* <UserLogo /> */}
+
         <div className={style.wrapper2}>
             <User post={post} />
             <UserOrPost post={post} />
