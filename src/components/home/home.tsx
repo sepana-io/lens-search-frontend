@@ -8,8 +8,10 @@ import useData from './hook'
 import style from './home.module.scss'
 import TopNavBar from '@/components/common/topNavbar/topNavbar'
 import Profile from '@/components/common/Profile/Profile'
-const Home: NextPage = () => {
+import { useRouter } from 'next/router'
 
+const Home: NextPage = () => {
+    const router = useRouter();
     const [page, setPage] = useState<number>(1)
     const [hasMore, setHasMore] = useState<boolean>(true)
 
@@ -23,6 +25,10 @@ const Home: NextPage = () => {
         }
     }, [loading, data])
 
+    useEffect(() => {
+        setPage(1)
+    }, [router])
+
     return (
         <Grid container justifyContent='space-between' style={{ width: '100%', marginTop: 72 }}>
             <Grid item xs={4}>
@@ -30,7 +36,7 @@ const Home: NextPage = () => {
             </Grid>
 
             <Grid item xs={8}>
-                <TopNavBar data={topData} onTabChange={() => setPage(1)} />
+                <TopNavBar data={topData} onTabChange={() => null} />
                 <div>
                     <InfiniteScroll
                         dataLength={data.length} //This is important field to render the next data
