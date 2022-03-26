@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     }, [loading, data])
 
     return (
-        <Grid container justifyContent='space-between' style={{ width: '100%', marginTop: 80 }}>
+        <Grid container justifyContent='space-between' style={{ width: '100%', marginTop: 72 }}>
             <Grid item xs={4}>
                 <FilterResult />
             </Grid>

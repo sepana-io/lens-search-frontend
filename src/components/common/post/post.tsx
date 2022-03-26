@@ -3,6 +3,8 @@ import style from './post.module.scss';
 import User from '../users/users';
 import Social from '../social/social';
 import UserOrPost from '../userorpost/userorpost';
+import UserLogo from "@/assets/logo/user.svg"
+
 interface Props {
     post: Post
 }
@@ -10,8 +12,8 @@ interface Props {
 const Post = ({ post }: any) => {
 
     return <div className={style.wrapper}>
-        <div>
-            <img src={''} alt='Avatar' className={style.avatar} />
+        <div className={style.avatar}>
+            <UserLogo />
         </div>
         <div className={style.wrapper2}>
             <User post={post} />

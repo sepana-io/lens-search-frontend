@@ -61,40 +61,39 @@
 
 .Wrapper {
     height: auto;
-    max-height: 100vh;
+    height: calc(100vh - 72px);
     min-width: 250px;
     width: 373px;
     background-color: #fff;
     position: sticky;
-    top: 84px;
-    p{
+    top: 72px;
+    p {
         margin-bottom: 0px;
         margin-top: 0px;
     }
-    .sticky65{
-        position: sticky; 
+    .sticky65 {
+        position: sticky;
         top: 65px;
     }
-    .title{
+    .title {
         margin-top: 20px;
         margin-left: 15px;
         font-size: 24px;
-        font-weight: 700; 
+        font-weight: 700;
         margin-bottom: 10px;
     }
-    .overflow{
+    .overflow {
         overflow-y: auto;
         height: calc(100vh - 197px);
     }
-    .expandAll{
+    .expandAll {
         font-size: 16px;
-        font-weight: 400; 
-        color: #0E501DE3; 
-        text-align: right; 
+        font-weight: 400;
+        color: #0e501de3;
+        text-align: right;
         margin-right: 20px;
         cursor: pointer;
     }
-    
 }
 
 .wrapper {
@@ -117,48 +116,47 @@
         color: $color-border;
     }
 }
-.singleInput{
-    padding: 10px; 
+.singleInput {
+    padding: 10px;
     margin-left: 10px;
     margin-bottom: 5px;
-    margin-top: 5px; 
+    margin-top: 5px;
 }
-.flexrow{
+.flexrow {
     display: flex;
     flex-direction: row;
 }
-.flexrowCenter{
+.flexrowCenter {
     @extend .flexrow;
     align-items: center;
 }
-.icon{
+.icon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 20px;
 }
-.twoButtons{
+.twoButtons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding-bottom: 15px; 
+    padding-bottom: 15px;
     margin-top: 20px;
-    .applyFilter{
-        font-size: 14px; 
-        font-weight: 600; 
-        color: #ABFE2D;
+    .applyFilter {
+        font-size: 14px;
+        font-weight: 600;
+        color: #abfe2d;
     }
-    .outer{
+    .outer {
         height: 39px;
         display: flex;
         justify-content: center;
-        cursor: pointer; 
+        cursor: pointer;
         align-items: center;
     }
-    .reset{
+    .reset {
         font-size: 16px;
         font-weight: 400;
-        color: #7EA186;
+        color: #7ea186;
     }
 }
-
