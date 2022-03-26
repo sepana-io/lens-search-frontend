@@ -20,7 +20,7 @@ const getIcon = (label: string) => {
     case 'Content': return <Content />
     case 'Bio': return <Bio />
     case 'Profiles': return <Users />
-    case 'Status': return <Engagement />
+    case 'Publications': return <Engagement />
     case 'Diamonds': return <Daimonds />
     case 'Creator Coin': return <Coin />
     case 'NFT': return <NFT />
@@ -289,13 +289,17 @@ const FilterInputs = ({ item, onChange, index, onFocus, type, onKeyDown, initial
         onKeyDown={handleKeyDown}
       />
     } else if (type === 'dropdown') {
-      return <Autocomplete
-      disablePortal
-      id="combo-box-demo"
-      options={options}
-      renderInput={(params) => <TextField {...params} label="App Name" onKeyDown={handleKeyDown} onChange={handleChange}
-      />}
-    />
+      return <div style={{ maxWidth: 235 }}>
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={options}
+          renderInput={(params) => <TextField {...params} label="App Name" onKeyDown={handleKeyDown}
+            size="small"
+            onChange={handleChange}
+          />}
+        />
+      </div>
     }
     return <TextField
       onFocus={() => onFocus(index)}

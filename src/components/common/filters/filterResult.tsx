@@ -8,8 +8,8 @@ import style from './filters.module.scss'
 
 const fliterData = [
   { label: 'Content', inputs: [{ label: 'All of these words', key: "text", extra: { search_type: "all_words" } }, { label: 'Exact phrase', key: "text", extra: { search_type: "exact_phrase" } }, { label: 'Any of these words', key: "text", extra: { search_type: "any_words" } }, { label: 'These hashtags', key: "text", extra: { search_type: "hashtags" } }] },
-  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these profiles', key: "from_users" }, { label: 'Mentioning these profiles', key: "mention_profiles" }] },
-  { label: 'Status', inputs: [{ label: 'Minimum Reclouts', key: "min_reclouts" }, { label: 'Minimum Likes', key: "min_likes" }, { label: 'Minimum Comments', key: "min_comments" }] },
+  { label: 'Profiles', inputs: [{ label: 'Bio description', key: "bio_description" }, { label: 'From these profiles', key: "from_users" }, { label: 'Mentioning these profiles', key: "mention_profiles" }, { label: 'Miminum Followers', key: "min_follower" }, { label: 'Miminum Posts', key: "min_posts" }] },
+  { label: 'Publications', inputs: [{ label: 'Minimum Mirrors', key: "min_reclouts" }, { label: 'Minimum Comments', key: "min_likes" }, { label: 'Minimum Collects', key: "min_comments" }] },
   // {
   //   label: 'NFT', inputs: [
   //     { 'Availability': [{ label1: 'Bidding', label2: 'Sold', key: "nft_availability", checkBox: true }] },

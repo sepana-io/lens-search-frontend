@@ -4,15 +4,17 @@ import { useRouter } from 'next/router'
 import { objIsEqual, queryObjToString, queryStringToObject } from '../../../utils/util'
 import { borderRadius } from '@mui/system'
 interface Props {
-  data: any[]
+  data: any[];
+  onTabChange: () => void;
 }
 
-const TopNavBar = ({ data = [] }: Props) => {
+const TopNavBar = ({ data = [], onTabChange }: Props) => {
   const history = useRouter()
   const [queryObj, setQueryObj] = useState({});
   const { asPath } = history
 
   const onChangeTab = (label: string): void => {
+    onTabChange()
     let tempObj = { ...queryObj, result_type: label }
     if (objIsEqual(tempObj, queryObj)) return;
     history.push(`/posts?${queryObjToString(tempObj)}`)
@@ -46,8 +48,8 @@ export default TopNavBar;
 const TopicName = ({ label, active = false, onClick }: any) => {
   return <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }}
     onClick={() => onClick()}>
-    <p style={{ marginBottom: 0, width: 70, textAlign: 'center', color: active ? '#0E501D' : '#000', fontWeight: 700, fontSize: 16}}>{label}
-    {active && <UnderlineIcon />}
+    <p style={{ marginBottom: 0, width: 70, textAlign: 'center', color: active ? '#0E501D' : '#000', fontWeight: 700, fontSize: 16 }}>{label}
+      {active && <UnderlineIcon />}
     </p>
   </div>
 }

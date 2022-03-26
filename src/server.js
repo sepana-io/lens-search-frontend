@@ -14,6 +14,8 @@ proxyUrl = 'https://lens-api.sepana.io'
 app.prepare().then(() => {
     const expressApp = express();
     expressApp.use('/contents', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
+    expressApp.use('/publications', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
+    expressApp.use('/profiles', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
 
     expressApp.all('*', (req, res) => handle(req, res));
 
