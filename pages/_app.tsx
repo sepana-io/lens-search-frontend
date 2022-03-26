@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 function MyApp({ Component, pageProps }: AppProps) {
 
   return <Provider store={store}>
-    <Header />
+    {/* <Header logo={true}/> */}
     <div style={{ maxWidth: 1200 }}>
       <Component {...pageProps} />
     </div>
