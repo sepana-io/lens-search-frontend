@@ -7,11 +7,7 @@ import { Grid } from '@mui/material';
 import Link from "next/link"
 import { parseSearchText, queryObjToString, objIsEqual, queryObjToSearchText } from "@/utils/util"
 
-interface Props {
-    logo: boolean
-}
-
-const Header = ({logo = true}:Props) => {
+const Header = () => {
     const router = useRouter();
     const [text, setText] = useState<string | string[]>('')
     const [shouldNavigate, setNavigate] = useState(true);
@@ -51,10 +47,10 @@ const Header = ({logo = true}:Props) => {
         }
 
     }, [router])
-
+    if(showSearch)
     return (
         <>
-          {logo ? <div className={style.wrapper}>
+          <div className={style.wrapper}>
                 <div style={{ maxWidth: 1200, marginRight: 'auto', marginLeft: 'auto' }}>
                     <Grid container alignItems='center' spacing={2} direction='row' style={{ marginTop: 0, height: 50 }}>
                         <Grid item xs={4} className={style.logo}>
@@ -72,15 +68,9 @@ const Header = ({logo = true}:Props) => {
                     </Grid>
                 </div>
             </div>
-            :
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '50vw' }}>
-            <input type="text" className={style.search} onKeyDown={handleSearch} onChange={(e: any) => setText(e.target.value)} value={text} />
-            <span><div className={style.logoSearch} ><SearchIcon /></div>
-            </span>
-        </div>   
-        }
         </>
     )
+    return null
 }
 
 export default Header;

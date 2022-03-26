@@ -1,5 +1,75 @@
 @import "../../../styles/mixins";
 
 .header{
-
+    color: $color-title;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 72px;
+}
+.subtitle{
+    margin-top: 14px;
+    margin-bottom: 52px;
+    text-align: center;
+    color: $color-subtitle;
+    font-weight: 500;
+}
+.plant{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    top: 26.5vh;
+}
+.recent{
+    display: flex;
+    justify-content: center;
+    .recentSingle{
+        padding-right: 10px;
+        color: #3772FF;
+        margin-top: 14px;
+    }
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-Width: 50vw;
+    .search {
+        border-radius: 32px;
+        background-color: #FFFFFF;
+        width: 100%;
+        max-width: 580px;
+        height: 40px;
+        border: 1px solid $color-secondary;
+        padding: 0px 45px 0px 20px;
+        &:hover {
+            border: 1px solid #42a559;
+        }
+        &:focus {
+            outline-width: 0;
+            border: 1px solid #42a559;
+        }
+    }
+    .logoSearch {
+        margin-left: -116px;
+        height: 34px;
+        width: 113px;
+        border-radius: 360px;
+        background-color: $color-secondary;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+        color: #ABFE2D;
+        path{
+            fill: #ABFE2D;
+        }
+        &:hover {
+            background-color: #699724;
+        }
+        .searchtext{
+            padding-left: 6px;
+        }
+    }
 }
