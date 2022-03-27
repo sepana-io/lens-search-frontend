@@ -14,7 +14,7 @@ import App from '../../../assets/icons/app.svg';
 import { FilterCheckBox, FilterNoCheckBox } from './filterCheckbox'
 import style from './filters.module.scss'
 import Autocomplete from '@mui/material/Autocomplete';
-
+import axios from 'axios'
 const getIcon = (label: string) => {
   switch (label) {
     case 'Content': return <Content />
@@ -63,7 +63,21 @@ const Filter = (props: FilterProps) => {
       setIsActive(false)
     }
     setIsActive(viewAll)
+    getAppIds()
   }, [activeIndex, viewAll])
+
+  const [app_ids, setApp_ids] = useState<any>([])
+
+  const getAppIds = () => {
+    axios.get('/app_id/all?size=20')
+      .then((res: any) => {
+        let data = [...res.data]
+        for (let i = 0; i < data.length; i++) {
+          data[i].label = data[i].key
+        }
+        setApp_ids(res.data)
+      })
+  }
 
   const getType = () => {
     if (label === 'Engagement') return 'number'
@@ -76,7 +90,14 @@ const Filter = (props: FilterProps) => {
     return 'text'
   }
 
-  const options: any[] = [];
+  const options = [{ label: 'The Shawshank Redemption', year: 1994 },
+  { label: 'The Godfather', year: 1972 },
+  { label: 'The Godfather: Part II', year: 1974 },
+  { label: 'The Dark Knight', year: 2008 },
+  { label: '12 Angry Men', year: 1957 },
+  { label: "Schindler's List", year: 1993 },
+  { label: 'Pulp Fiction', year: 1994 }];
+
 
   const getInitialValues = (item: any) => {
     let q_keys = query ? Object.keys(query) : []
@@ -105,7 +126,7 @@ const Filter = (props: FilterProps) => {
           if (label === 'NFT') {
             return <MultiInputs data={item} query={query} onChange={onChange} key={`fi${index}`} onFocus={handleRefresh} resetIndex={resetIndex} search={search} onKeyDown={onKeyDown} />
           }
-          return <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index} onFocus={handleRefresh} type={getType()} options={options} onKeyDown={onKeyDown} />
+          return <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index} onFocus={handleRefresh} type={getType()} options={app_ids} onKeyDown={onKeyDown} />
         })}
         {/* <PRRFilter label={label} getState={getState}/> */}
       </div>
@@ -288,6 +309,7 @@ const FilterInputs = ({ item, onChange, index, onFocus, type, onKeyDown, initial
           disablePortal
           id="combo-box-demo"
           options={options}
+          onSelect={handleChange}
           renderInput={(params) => <TextField {...params} label="App Name" onKeyDown={handleKeyDown}
             size="small"
             onChange={handleChange}

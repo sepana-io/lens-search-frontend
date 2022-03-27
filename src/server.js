@@ -16,6 +16,8 @@ app.prepare().then(() => {
     expressApp.use('/contents', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
     expressApp.use('/publications', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
     expressApp.use('/profiles', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
+    expressApp.use('/app_id', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
+    expressApp.use('/traverse', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
 
     expressApp.all('*', (req, res) => handle(req, res));
 

@@ -78,3 +78,25 @@
         opacity: 0.9;
     }
 }
+
+.FilterBtnSmall {
+    height: 24px;
+    border-radius: 12px;
+    margin-left: 8px;
+    background-color: $color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &:hover {
+        opacity: 0.9;
+    }
+
+    .applyFilter {
+        font-size: 14px;
+        font-weight: 400;
+        color: #abfe2d;
+    }
+}
