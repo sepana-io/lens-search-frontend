@@ -152,7 +152,7 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
           <div className={style.flexrow}>
             {v.data.map((item: any, index: number) => {
               if (item.checkBox) {
-                return <FilterCheckBox initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
+                return <FilterCheckBox key={`fci${index}`} initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
               }
               else {
                 if (index === 1) {
@@ -179,7 +179,7 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
 
       {data[keyLabel].map((item: any, index: number) => {
         if (item.checkBox) {
-          return <FilterCheckBox initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
+          return <FilterCheckBox key={`fl${index}`} initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
         }
       })}
     </>
@@ -190,7 +190,7 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
     <div className={style.flexrow}>
       {data[keyLabel].map((item: any, index: number) => {
         if (item.checkBox) {
-          return <FilterNoCheckBox initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
+          return <FilterNoCheckBox key={`fn${index}`} initialVlue={getInitialValues(item)} item={item} onChange={onChange} onKeyDown={onKeyDown} />
         }
       })}
     </div>
@@ -199,7 +199,7 @@ const MultiInputs = ({ data, query, onChange, onFocus, resetIndex, search, onKey
       {data[keyLabel].map((item: any, index: number) => {
         if (item.checkBox === undefined) {
           if (index === 2) {
-            return <div className={style.flexrowCenter}>
+            return <div className={style.flexrowCenter} key={`fi${index}`}>
               <p>to</p>
               <FilterInputs initialVlue={getInitialValues(item)} item={item} onChange={onChange} key={`fi${index}`} index={index}
                 onFocus={onFocus} type={'number'} onKeyDown={onKeyDown} />

@@ -9,31 +9,24 @@ interface Props {
     post: Post
 }
 
+
 const Post = ({ post }: any) => {
     const [err, setErr] = useState<boolean>(false)
+    const getURL = (url: string) => {
+        if (url && url.includes('ipfs')) {
 
-
-    return <div className={style.wrapper}>
-
-        {(post.profile.imageURI === "" || err) && <div className={style.avatar}> <UserLogo /> </div>}
-        {post.profile.imageURI !== "" && !err && <img src={post.profile.imageURI} alt='some image' className={style.avatar}
-            onError={() => setErr(true)} />}
-
-        {/* <UserLogo /> */}
-
-        <div className={style.wrapper2}>
-            <User post={post} />
-            <UserOrPost post={post} />
-            <Social post={post} />
-        </div>
-    </div>
-
-    return <div className={style.wrapper}>
-
-        {post.profile.picture?.original?.url === "" ? <div className={style.avatar}> <UserLogo /> </div> :
-            <img src={post.profile.picture?.original?.url} alt='some image' className={style.avatar} />
+            if (url.includes('https://ipfs')) {
+                return url
+            }
+            let hash = url.split('//')[1]
+            return `https://ipfs.io/ipfs/${hash}`
         }
-        {/* <UserLogo /> */}
+
+        return url === null ? '' : url
+    }
+
+    return <div className={style.wrapper}>
+        <ProfileImage post={post} />
 
         <div className={style.wrapper2}>
             <User post={post} />
@@ -44,4 +37,25 @@ const Post = ({ post }: any) => {
 }
 
 
+const ProfileImage = ({ post }) => {
+    const [err, setErr] = useState(false)
+    const getURL = (url: string) => {
+        if (url && url.includes('ipfs')) {
+
+            if (url.includes('https://ipfs')) {
+                return url
+            }
+            let hash = url.split('//')[1]
+            return `https://ipfs.io/ipfs/${hash}`
+        }
+
+        return url === null ? '' : url
+    }
+
+    if (post.profile.imageURI && !err) return <img src={getURL(post.profile.imageURI)} alt='some image' className={style.avatar}
+        onError={() => setErr(true)} />
+    return <div className={style.avatar}> <UserLogo /> </div>
+}
+
 export default Post
+
