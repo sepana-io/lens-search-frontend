@@ -1,4 +1,4 @@
-import style from '../post/post.module.scss'
+import style from './Profile.module.scss'
 import UserLogo from "@/assets/logo/user.svg"
 import { useState, useEffect, useRef } from "react"
 import dynamic from 'next/dynamic'
@@ -14,6 +14,7 @@ let ForceGraph2D = null
 const Profile = ({ post }) => {
     const [graphData, setGraphData] = useState({ nodes: [], links: [] })
     const fgRef = useRef();
+    const containerView = useRef();
 
     const getGraphData = (id) => {
         axios.get('/traverse?start=' + id)
@@ -40,16 +41,17 @@ const Profile = ({ post }) => {
                 setGraphData({ nodes, links })
                 setTimeout(() => {
                     if (fgRef.current != undefined)
-                        fgRef.current.zoomToFit(700, 10)
+                        fgRef.current.zoomToFit(500, 20)
                 }, 300)
             })
             .catch(err => {
                 console.log('err', err)
             })
     }
-
+    const [width, setWidth] = useState(400)
     useEffect(() => {
         ForceGraph2D = require('react-force-graph-2d').default
+        setWidth(containerView.current.offsetWidth - 50)
         // getGraphData(post.id);
     }, [])
 
@@ -75,87 +77,53 @@ const Profile = ({ post }) => {
         setShowGraph(!showGraph)
     }
 
-    return (<>
-        <div className={style.wrapper}>
-            <div>
-                <ProfileImage item={post} />
-            </div>
+    return (
+        <div className={style.wrapper} ref={containerView}>
+            <div style={{ display: 'flex' }}>
+                <div>
+                    <ProfileImage item={post} />
+                </div>
 
-            <div className={style.wrapper2}>
-                <div className={style.user}>
-                    <h5 className={style.author}>{post.handle}</h5>
-                    <p className={style.spacing}>{post.id}</p>
+                <div className={style.wrapper2}>
+                    <div className={style.user}>
+                        <h5 className={style.author}>{post.handle}</h5>
+                        <p className={style.spacing}>{post.id}</p>
 
-                    <div className={style.FilterBtnSmall} onClick={handleGraph}>
-                        <p className={style.applyFilter}>Social Graph</p>
-                    </div>
-                    {/* <p className={style.spacing}>{moment(post.block_timestamp).format('MMMM DD')}</p> */}
-                    {/* {post.bio ?
+                        <div className={style.FilterBtnSmall} onClick={handleGraph}>
+                            <p className={style.applyFilter}>Social Graph</p>
+                        </div>
+                        {/* <p className={style.spacing}>{moment(post.block_timestamp).format('MMMM DD')}</p> */}
+                        {/* {post.bio ?
                     <div className={style.FilterBtn}>
                         <p style={{ fontSize: 14, fontWeight: 600, color: '#ABFE2D' }}>Follow</p>
                     </div>
                     : <p className={style.spacing}>{moment(post.createdAt).format('MMMM DD')}</p>} */}
+                    </div>
+                    <div>
+                        <p className={style.title}>{post.bio}</p>
+                    </div>
+                    <div>
+                        {isValid(post.name) && <p className={style.title}>Name <span className={style.muted}>{post.name}</span></p>}
+                        {isValid(post.location) && <p className={style.title}>Location <span className={style.muted}>{post.location}</span></p>}
+                        <p className={style.title}>Owned by <span className={style.muted}>{post.ownedBy}</span></p>
+                    </div>
+                    <div className={style.social}>
+                        <p className={style.unmuted}>{post.stats.totalPublications ? post.stats.totalPublications : 0}<span className={style.muted}>Publications</span></p>
+                        <p className={style.unmuted}>{post.stats.totalFollowers ? post.stats.totalFollowers : 0}<span className={style.muted}>Followers</span></p>
+                        <p className={style.unmuted}>{post.stats.totalFollowing ? post.stats.totalFollowing : 0}<span className={style.muted}>Following</span></p>
+                    </div>
+
                 </div>
-                <div>
-                    <p className={style.title}>{post.bio}</p>
-                </div>
-                <div>
-                    {isValid(post.name) && <p className={style.title}>Name <span className={style.muted}>{post.name}</span></p>}
-                    {isValid(post.location) && <p className={style.title}>Location <span className={style.muted}>{post.location}</span></p>}
-                    <p className={style.title}>Owned by <span className={style.muted}>{post.ownedBy}</span></p>
-                </div>
-                <div className={style.social}>
-                    <p className={style.unmuted}>{post.stats.totalPublications ? post.stats.totalPublications : 0}<span className={style.muted}>Publications</span></p>
-                    <p className={style.unmuted}>{post.stats.totalFollowers ? post.stats.totalFollowers : 0}<span className={style.muted}>Followers</span></p>
-                    <p className={style.unmuted}>{post.stats.totalFollowing ? post.stats.totalFollowing : 0}<span className={style.muted}>Following</span></p>
-                </div>
-
-
-                {showGraph && ForceGraph2D !== null && <ForceGraph2D
-                    width={400}
-                    height={400}
-                    ref={fgRef}
-                    graphData={graphData}
-                    // nodeAutoColorBy="group"
-                    // onNodeClick={handleClick}
-                    nodeCanvasObject={(node, ctx, globalScale) => {
-                        const label = node.handle === undefined ? node.id : node.handle;
-                        const fontSize = 12 / globalScale;
-                        ctx.font = `${fontSize}px Sans-Serif`;
-                        const textWidth = ctx.measureText(label).width;
-                        const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
-
-                        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                        ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillStyle = getColor(node.id);
-                        ctx.fillText(label, node.x, node.y);
-
-                        node.__bckgDimensions = bckgDimensions; // to re-use in nodePointerAreaPaint
-                    }}
-                    nodePointerAreaPaint={(node, color, ctx) => {
-                        ctx.fillStyle = color;
-                        const bckgDimensions = node.__bckgDimensions;
-                        bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-                    }}
-                />}
             </div>
-
-
-        </div>
-
-        {/* {showGraph && ForceGraph2D !== null && <div className={style.wrapper}>
-            <ForceGraph2D
-                width={'100%'}
-                height={300}
+            {showGraph && ForceGraph2D !== null && <ForceGraph2D
+                width={width}
+                height={400}
                 ref={fgRef}
                 graphData={graphData}
                 // nodeAutoColorBy="group"
                 // onNodeClick={handleClick}
                 nodeCanvasObject={(node, ctx, globalScale) => {
-                    const label = node.name === undefined ? node.id : node.name;
+                    const label = node.handle === undefined ? node.id : node.handle;
                     const fontSize = 12 / globalScale;
                     ctx.font = `${fontSize}px Sans-Serif`;
                     const textWidth = ctx.measureText(label).width;
@@ -176,10 +144,11 @@ const Profile = ({ post }) => {
                     const bckgDimensions = node.__bckgDimensions;
                     bckgDimensions && ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
                 }}
-            />
-        </div>} */}
+            />}
 
-    </>)
+
+        </div>
+    )
 }
 export default Profile
 
