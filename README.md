@@ -1,5 +1,7 @@
 
 ## Searching the Lens protocol
+
+Click here to search: https://lens.sepana.io/
 <img width="1049" alt="Screen Shot 2022-03-27 at 4 16 35 PM" src="https://user-images.githubusercontent.com/87264202/160283303-7fe51c90-9911-4fcf-9510-92b2fc9e2f67.png">
 
 ## Search by content, keywords, hashtags, profiles, and more
