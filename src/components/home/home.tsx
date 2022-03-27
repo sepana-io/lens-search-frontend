@@ -29,8 +29,44 @@ const Home: NextPage = () => {
         setPage(1)
     }, [router])
 
-    return (
-        <Grid container justifyContent='space-between' style={{ width: '100%', marginTop: 72 }}>
+    // return (<div className={style.root}>
+    //     <div style={{ marginTop: 72, display: 'flex', width: '100%' }}>
+    //         <div style={{ width: '33.33%', }}>
+    //             <FilterResult />
+    //         </div>
+
+    //         <div style={{ width: '67.33%', backgroundColor: 'red' }}>
+    //             <TopNavBar data={topData} onTabChange={() => null} />
+    //             <div>
+    //                 <InfiniteScroll
+    //                     dataLength={data.length} //This is important field to render the next data
+    //                     next={() => setPage(page + 1)}
+    //                     hasMore={hasMore}
+    //                     loader={<div className={style.wrapper}>
+    //                         <h3>Loading</h3>
+    //                     </div>
+    //                     }
+    //                 >
+    //                     {loading && <div className={style.wrapper}>
+    //                         <h3>Loading</h3>
+    //                     </div>}
+
+    //                     {!loading && data.map(item => {
+    //                         if (item?.profile?.handle === undefined) {
+    //                             return <Profile key={item._id} post={item} />
+    //                         }
+    //                         return <Post key={item._id} post={item} />
+    //                     })}
+    //                 </InfiniteScroll>
+    //             </div>
+    //         </div>
+
+    //     </div>
+    // </div >
+    // )
+
+    return (<div className={style.root}>
+        <Grid container style={{ marginTop: 72 }}>
             <Grid item xs={4}>
                 <FilterResult />
             </Grid>
@@ -62,6 +98,7 @@ const Home: NextPage = () => {
             </Grid>
 
         </Grid>
+    </div >
     )
 }
 

@@ -1,42 +1,49 @@
 @import "../../../styles/mixins";
 
-.header{
+.root {
+    background: radial-gradient(121.31% 117.4% at 61.67% 14.54%, #ffffff 11.51%, #f4f8ea 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+}
+.header {
     color: $color-title;
     font-weight: 800;
     font-size: 60px;
     line-height: 72px;
 }
-.subtitle{
+.subtitle {
     margin-top: 14px;
     margin-bottom: 52px;
     text-align: center;
     color: $color-subtitle;
     font-weight: 500;
 }
-.plant{
+.plant {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     position: relative;
-    top: 26.5vh;
 }
-.recent{
+.recent {
     display: flex;
     justify-content: center;
-    .recentSingle{
+    .recentSingle {
         padding-right: 10px;
-        color: #3772FF;
+        color: #3772ff;
         margin-top: 14px;
     }
 }
-.wrapper{
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-Width: 50vw;
+    min-width: 50vw;
     .search {
         border-radius: 32px;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         width: 100%;
         max-width: 580px;
         height: 40px;
@@ -61,14 +68,14 @@
         justify-content: center;
         align-items: center;
         transition: all 0.3s ease-in-out;
-        color: #ABFE2D;
-        path{
-            fill: #ABFE2D;
+        color: #abfe2d;
+        path {
+            fill: #abfe2d;
         }
         &:hover {
             background-color: #699724;
         }
-        .searchtext{
+        .searchtext {
             padding-left: 6px;
         }
     }

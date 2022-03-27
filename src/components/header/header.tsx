@@ -32,7 +32,6 @@ const Header = () => {
 
     useEffect(() => {
         const { query } = router;
-        console.log('router', router)
         let qObj = { ...query }
         delete qObj.name
         if (!objIsEqual(qObj, parseSearchText(text))) {
@@ -47,29 +46,29 @@ const Header = () => {
         }
 
     }, [router])
-    if(showSearch)
-    return (
-        <>
-          <div className={style.wrapper}>
-                <div style={{ maxWidth: 1200, marginRight: 'auto', marginLeft: 'auto' }}>
-                    <Grid container alignItems='center' spacing={2} direction='row' style={{ marginTop: 0, height: 50 }}>
-                        <Grid item xs={4} className={style.logo}>
-                            <Link href={"/"} >
-                                <Logo />
-                            </Link>
+    if (showSearch)
+        return (
+            <>
+                <div className={style.wrapper}>
+                    <div style={{ maxWidth: 1200, marginRight: 'auto', marginLeft: 'auto' }}>
+                        <Grid container alignItems='center' spacing={2} direction='row' style={{ marginTop: 0, height: 50 }}>
+                            <Grid item xs={4} className={style.logo}>
+                                <Link href={"/"} >
+                                    <Logo />
+                                </Link>
+                            </Grid>
+                            <Grid item xs={8} className={style.searchGrid}>
+                                {showSearch && <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '50vw' }}>
+                                    <input type="text" className={style.search} onKeyDown={handleSearch} onChange={(e: any) => setText(e.target.value)} value={text} />
+                                    <span><div className={style.logoSearch} onClick={goToTopic} ><SearchIcon /></div>
+                                    </span>
+                                </div>}
+                            </Grid>
                         </Grid>
-                        <Grid item xs={8} className={style.searchGrid}>
-                            {showSearch && <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: '50vw' }}>
-                                <input type="text" className={style.search} onKeyDown={handleSearch} onChange={(e: any) => setText(e.target.value)} value={text} />
-                                <span><div className={style.logoSearch} onClick={goToTopic} ><SearchIcon /></div>
-                                </span>
-                            </div>}
-                        </Grid>
-                    </Grid>
+                    </div>
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
     return null
 }
 

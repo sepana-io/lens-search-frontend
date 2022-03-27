@@ -18,7 +18,7 @@ const useData = (page: number) => {
         }
         axios.get(`/${urlPath}?${parameters}${page > 1 ? '&page=' + page : ''}`)
             .then((res: any) => {
-                // console.log('res', res)
+                console.log('res', res)
                 if (page > 1) {
                     setData([...data, ...res.data.data])
                 }

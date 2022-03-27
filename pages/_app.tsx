@@ -7,11 +7,13 @@ import { Provider } from 'react-redux'
 function MyApp({ Component, pageProps }: AppProps) {
 
   return <Provider store={store}>
-    <Header/>
-    <div style={{ maxWidth: 1200 }}>
-      <Component {...pageProps} />
+    <Header />
+    <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
+      <div style={{ maxWidth: 1200, minWidth: 720, width: '100%' }}>
+        <Component {...pageProps} />
+      </div>
     </div>
-  </Provider>
+  </Provider >
 }
 
 const initialState = {

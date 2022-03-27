@@ -2,6 +2,8 @@ import style from '../post/post.module.scss'
 import moment from 'moment'
 import Image from 'next/image'
 import UserLogo from "@/assets/logo/user.svg"
+import { useState } from "react"
+
 interface ProfileProps {
     post: any
 }
@@ -45,8 +47,9 @@ const Profile = ({ post }: ProfileProps) => {
 }
 export default Profile
 
-
 const ProfileImage = (item: any) => {
-    if (item.item.picture.original.url === "") return <div className={style.avatar}> <UserLogo /> </div>
-    return <img src={item.item.picture.original.url} alt='some image' className={style.avatar} />
+    const [err, setErr] = useState<boolean>(false)
+
+    if (item.item.picture?.original?.url && !err) return <img src={item.item.picture?.original?.url} alt='some image' className={style.avatar} onError={() => setErr(true)} />
+    return <div className={style.avatar}> <UserLogo /> </div>
 }

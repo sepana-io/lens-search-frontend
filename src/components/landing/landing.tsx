@@ -28,30 +28,32 @@ const Landing = () => {
     }
 
     const mockdata = ['Publications by @balajis ', 'Profiles with ‘solidity’ in Bio  ', 'Most active Profiles']
-    return <div>
-        <h1 className={style.header}>Discover the Lens social network</h1>
-        <p className={style.subtitle}>
-        Lens is a social network built on the blockchain. 
-        <br />
-        Search and explore it’s posts, people, and connections.
-        </p>
-        <div className={style.wrapper}>
-            <input type="text" className={style.search} onKeyDown={handleSearch} onChange={(e: any) => setText(e.target.value)} value={text} />
-            <span><div className={style.logoSearch} onClick={goToTopic} >
-                <SearchIcon />
-                <span className={style.searchtext}>Search</span>
+    return <div className={style.root}>
+        <div>
+            <h1 className={style.header}>Discover the Lens social network</h1>
+            <p className={style.subtitle}>
+                Lens is a social network built on the blockchain.
+                <br />
+                Search and explore it’s posts, people, and connections.
+            </p>
+            <div className={style.wrapper}>
+                <input type="text" placeholder="i.e. HODL" className={style.search} onKeyDown={handleSearch} onChange={(e: any) => setText(e.target.value)} value={text} />
+                <span><div className={style.logoSearch} onClick={goToTopic} >
+                    <SearchIcon />
+                    <span className={style.searchtext}>Search</span>
                 </div>
-            </span>
-        </div>
+                </span>
+            </div>
             <div className={style.recent}>
-                {mockdata.map((item,index) => {
+                {mockdata.map((item, index) => {
                     return <div key={item} className={style.recentSingle}>
-                        <Link href={item}>{index !== mockdata.length-1 ? `${item} |` : item}</Link>
-                        </div>
+                        <Link href={item}>{index !== mockdata.length - 1 ? `${item} |` : item}</Link>
+                    </div>
                 })}
             </div>
+        </div>
         <div className={style.plant}>
-        <Plant />
+            <Plant />
 
         </div>
     </div>

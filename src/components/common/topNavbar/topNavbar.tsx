@@ -37,7 +37,7 @@ const TopNavBar = ({ data = [], onTabChange }: Props) => {
   }, [asPath])
 
   return (
-    <div style={{ width: '100%', maxWidth: 500, display: 'flex', justifyContent: 'space-around', paddingTop: 20 }}>
+    <div style={{ maxWidth: 500, display: 'flex', justifyContent: 'space-around' }}>
       {data.map((item, index): any => <TopicName key={index} label={item} active={index === activeIndex} onClick={() => onChangeTab(item.toLowerCase())} />)}
     </div>
   )

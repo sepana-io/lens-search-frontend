@@ -1,7 +1,6 @@
 @import "../../../styles/mixins";
 
 .wrapper {
-    width: 700px;
     min-height: 200px;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
@@ -13,4 +12,8 @@
     margin-top: 80px;
     justify-content: center;
     align-items: center;
+}
+
+.root {
+    flex-grow: 1;
 }
