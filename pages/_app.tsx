@@ -3,17 +3,23 @@ import type { AppProps } from 'next/app'
 import Header from '@/components/header/header'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  return <Provider store={store}>
-    <Header />
-    <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ maxWidth: 1200, minWidth: 720, width: '100%' }}>
-        <Component {...pageProps} />
+  return <>
+  <Head>
+        <title>SEPANA</title>
+      </Head>
+    <Provider store={store}>
+      <Header />
+      <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: 1200, minWidth: 720, width: '100%' }}>
+          <Component {...pageProps} />
+        </div>
       </div>
-    </div>
-  </Provider >
+    </Provider >
+  </>
 }
 
 const initialState = {
