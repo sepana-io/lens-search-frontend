@@ -1,16 +1,13 @@
 import style from './Profile.module.scss'
 import UserLogo from "@/assets/logo/user.svg"
 import { useState, useEffect, useRef } from "react"
-import dynamic from 'next/dynamic'
 import axios from 'axios'
-// const ForceGraph2D = dynamic(() => import('react-force-graph-2d'))
+import { sanitize } from "@/utils/sanitize"
+
 
 let ForceGraph2D = null
 
 
-// interface ProfileProps {
-//     post: any
-// }
 const Profile = ({ post }) => {
     const [graphData, setGraphData] = useState({ nodes: [], links: [] })
     const fgRef = useRef();
@@ -52,7 +49,6 @@ const Profile = ({ post }) => {
     useEffect(() => {
         ForceGraph2D = require('react-force-graph-2d').default
         setWidth(containerView.current.offsetWidth - 50)
-        // getGraphData(post.id);
     }, [])
 
     const [showGraph, setShowGraph] = useState(false)
@@ -100,7 +96,7 @@ const Profile = ({ post }) => {
                     : <p className={style.spacing}>{moment(post.createdAt).format('MMMM DD')}</p>} */}
                     </div>
                     <div>
-                        <p className={style.title}>{post.bio}</p>
+                        <p className={style.title}>{sanitize(post.bio)}</p>
                     </div>
                     <div>
                         {isValid(post.name) && <p className={style.title}>Name <span className={style.muted}>{post.name}</span></p>}

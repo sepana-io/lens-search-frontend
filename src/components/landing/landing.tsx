@@ -27,7 +27,9 @@ const Landing = () => {
         }
     }
 
-    const mockdata = ['Publications by @balajis ', 'Profiles with ‘solidity’ in Bio  ', 'Most active Profiles']
+    const mockdata = [{ lable: 'Profiles with ‘dev’ in Bio ', link: "/posts?result_type=profiles&bio=dev" },
+    { lable: 'Social graph of devjoshstevens  ', link: "/posts?text=devjoshstevens&result_type=profiles" },
+    { lable: 'See latest posts', link: '/posts?result_type=latest' }]
     return <div className={style.root}>
         <div>
             <h1 className={style.header}>Discover the Lens social network</h1>
@@ -46,8 +48,8 @@ const Landing = () => {
             </div>
             <div className={style.recent}>
                 {mockdata.map((item, index) => {
-                    return <div key={item} className={style.recentSingle}>
-                        <Link href={item}>{index !== mockdata.length - 1 ? `${item} |` : item}</Link>
+                    return <div key={item.lable} className={style.recentSingle}>
+                        <Link href={item.link}>{index !== mockdata.length - 1 ? `${item.lable} |` : item.lable}</Link>
                     </div>
                 })}
             </div>
