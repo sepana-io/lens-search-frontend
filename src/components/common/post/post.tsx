@@ -5,6 +5,7 @@ import Social from '../social/social';
 import UserOrPost from '../userorpost/userorpost';
 import UserLogo from "@/assets/logo/user.svg"
 import { useState } from "react"
+import Link from 'next/link';
 interface Props {
     post: Post
 }
@@ -51,10 +52,12 @@ const ProfileImage = ({ post }) => {
 
         return url === null ? '' : url
     }
-
-    if (post.profile.imageURI && !err) return <img src={getURL(post.profile.imageURI)} alt='some image' className={style.avatar}
-        onError={() => setErr(true)} />
-    return <div className={style.avatar}> <UserLogo /> </div>
+    if (post.profile.imageURI && !err) return <Link href={`posts?from_user=${post.profile.handle}`} ><img src={getURL(post.profile.imageURI)} alt='some image' className={style.avatar}
+        onError={() => setErr(true)} /></Link>
+    return <Link href={`posts?from_user=${post.profile.handle}`}><div className={style.avatar}>
+        <UserLogo />
+    </div>
+    </Link>
 }
 
 export default Post

@@ -3,6 +3,7 @@ import UserLogo from "@/assets/logo/user.svg"
 import { useState, useEffect, useRef } from "react"
 import axios from 'axios'
 import { sanitize } from "@/utils/sanitize"
+import Link from 'next/link'
 
 
 let ForceGraph2D = null
@@ -148,9 +149,10 @@ const Profile = ({ post }) => {
 }
 export default Profile
 
-const ProfileImage = (item) => {
+const ProfileImage = ({ item }) => {
     const [err, setErr] = useState(false)
-
-    if (item.item.picture?.original?.url && !err) return <img src={item.item.picture?.original?.url} alt='some image' className={style.avatar} onError={() => setErr(true)} />
-    return <div className={style.avatar}> <UserLogo /> </div>
+    console.log(item)
+    if (item.picture?.original?.url && !err) return <Link href={`posts?from_user=${item.handle}`}><img src={item.picture?.original?.url} alt='some image' className={style.avatar} onError={() => setErr(true)} />
+    </Link>
+    return <Link href={`posts?from_user=${item.handle}`}><div className={style.avatar}> <UserLogo /> </div></Link>
 }
