@@ -19,6 +19,6 @@
       "@/*": ["./src/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/server.js", "src/components/common/Profile/Profile.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/server.js", "src/components/common/Profile/Profile.js", "src/utils/sanitize.js", "src/utils/sanitize.js"],
   "exclude": ["node_modules"]
 }
