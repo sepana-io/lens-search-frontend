@@ -1,4 +1,4 @@
-import style from '../post/post.module.scss'
+import style from './users.module.scss'
 import Person from '@/assets/icons/person.svg';
 import moment from 'moment'
 import Link from 'next/link'

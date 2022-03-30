@@ -101,7 +101,7 @@ const Profile = ({ post }) => {
                     : <p className={style.spacing}>{moment(post.createdAt).format('MMMM DD')}</p>} */}
                     </div>
                     <div>
-                        {isValid(post.name) && <p className={style.title}><Person /> <span className={style.muted}>{post.name}{""} {post.id}</span></p>}
+                        {isValid(post.name) && <p className={style.title}><Person /> <span className={style.muted}>{post.name}{" · "} {post.id}</span></p>}
                     </div>
                     <div>
                         <p className={style.bio}>{sanitize(post.bio)}</p>

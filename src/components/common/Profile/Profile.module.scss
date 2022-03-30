@@ -43,10 +43,11 @@
 .title {
     margin-top: 0px;
     margin-bottom: 4px;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 15px;
     display: flex;
     align-items: center;
+    color: #6c6c6c;
 }
 .description {
     margin-top: 0px;
@@ -104,17 +105,17 @@
         color: #abfe2d;
     }
 }
-.bio{
+.bio {
     font-weight: 400;
     font-size: 15px;
 }
-.flex{
+.flex {
     display: flex;
 }
-.spaceLeft{
+.spaceLeft {
     margin-left: 10px;
 }
-.link{
-    color: #367BF5;
+.link {
+    color: #367bf5;
     margin-left: 5px;
 }
