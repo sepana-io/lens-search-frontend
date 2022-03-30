@@ -151,7 +151,7 @@ export default Profile
 
 const ProfileImage = ({ item }) => {
     const [err, setErr] = useState(false)
-    if (item.picture?.original?.url && !err) return <Link href={`posts?from_user=${item.handle}`}><img src={item.picture?.original?.url} alt='some image' className={style.avatar} onError={() => setErr(true)} />
+    if (item.picture?.original?.url && !err) return <Link href={`posts?from_users=${item.handle}`}><img src={item.picture?.original?.url} alt='some image' className={style.avatar} onError={() => setErr(true)} />
     </Link>
-    return <Link href={`posts?from_user=${item.handle}`}><div className={style.avatar}> <UserLogo /> </div></Link>
+    return <Link href={`posts?from_users=${item.handle}`}><div className={style.avatar}> <UserLogo /> </div></Link>
 }

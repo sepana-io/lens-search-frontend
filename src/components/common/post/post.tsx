@@ -1,4 +1,4 @@
-import { Post } from '@/types/posttype';
+import { PostProps } from '@/types/posttype';
 import style from './post.module.scss';
 import User from '../users/users';
 import Social from '../social/social';
@@ -6,25 +6,16 @@ import UserOrPost from '../userorpost/userorpost';
 import UserLogo from "@/assets/logo/user.svg"
 import { useState } from "react"
 import Link from 'next/link';
+
 interface Props {
-    post: Post
+    post: PostProps
 }
+
+const getURL = (url: string) => url === null ? '' : url.replace("ipfs://", "https://ipfs.io/ipfs/")
 
 
 const Post = ({ post }: any) => {
     const [err, setErr] = useState<boolean>(false)
-    const getURL = (url: string) => {
-        if (url && url.includes('ipfs')) {
-
-            if (url.includes('https://ipfs')) {
-                return url
-            }
-            let hash = url.split('//')[1]
-            return `https://ipfs.io/ipfs/${hash}`
-        }
-
-        return url === null ? '' : url
-    }
 
     return <div className={style.wrapper}>
         <ProfileImage post={post} />
@@ -40,21 +31,9 @@ const Post = ({ post }: any) => {
 
 const ProfileImage = ({ post }) => {
     const [err, setErr] = useState(false)
-    const getURL = (url: string) => {
-        if (url && url.includes('ipfs')) {
-
-            if (url.includes('https://ipfs')) {
-                return url
-            }
-            let hash = url.split('//')[1]
-            return `https://ipfs.io/ipfs/${hash}`
-        }
-
-        return url === null ? '' : url
-    }
-    if (post.profile.imageURI && !err) return <Link href={`posts?from_user=${post.profile.handle}`} ><img src={getURL(post.profile.imageURI)} alt='some image' className={style.avatar}
+    if (post.profile.picture && !err) return <Link href={`posts?from_users=${post.profile.handle}`} ><img src={getURL(post.profile.picture.original?.url)} alt='some image' className={style.avatar}
         onError={() => setErr(true)} /></Link>
-    return <Link href={`posts?from_user=${post.profile.handle}`}><div className={style.avatar}>
+    return <Link href={`posts?from_users=${post.profile.handle}`}><div className={style.avatar}>
         <UserLogo />
     </div>
     </Link>

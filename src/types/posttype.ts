@@ -1,4 +1,4 @@
-export interface Post {
+export interface PostProps {
     avatar: string,
     author: string,
     profileId: string,

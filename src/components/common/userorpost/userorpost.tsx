@@ -15,22 +15,12 @@ const UserOrPost = ({ post }: any) => {
 
 }
 
-const Media = (item: any) => {
+const Media = ({item}) => {
 
-    const getURL = (url: string) => {
-        if (url.includes('ipfs')) {
+    const getURL = (url: string) => url.replace("ipfs://", "https://ipfs.io/ipfs/")
 
-            if (url.includes('https://ipfs')) {
-                return url
-            }
-            let hash = url.split('//')[1]
-            return `https://ipfs.io/ipfs/${hash}`
-        }
-        return url
-    }
-
-    if (item.item.type.includes('image'))
-        return <img src={getURL(item.item.item)} alt='some image' className={style.mainImage} />
+    if (item.original.mimeType?.includes('image'))
+        return <img src={getURL(item.original.url)} alt='some image' className={style.mainImage} />
     return null
 }
 
