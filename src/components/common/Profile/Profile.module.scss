@@ -45,6 +45,8 @@
     margin-bottom: 4px;
     font-weight: 500;
     font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 .description {
     margin-top: 0px;
@@ -101,4 +103,18 @@
         font-weight: 400;
         color: #abfe2d;
     }
+}
+.bio{
+    font-weight: 400;
+    font-size: 15px;
+}
+.flex{
+    display: flex;
+}
+.spaceLeft{
+    margin-left: 10px;
+}
+.link{
+    color: #367BF5;
+    margin-left: 5px;
 }

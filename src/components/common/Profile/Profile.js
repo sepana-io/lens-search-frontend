@@ -1,5 +1,8 @@
 import style from './Profile.module.scss'
 import UserLogo from "@/assets/logo/user.svg"
+import Person from '@/assets/icons/person.svg';
+import Location from '@/assets/icons/location.svg';
+import Key from '@/assets/icons/key.svg';
 import { useState, useEffect, useRef } from "react"
 import axios from 'axios'
 import { sanitize } from "@/utils/sanitize"
@@ -83,8 +86,9 @@ const Profile = ({ post }) => {
 
                 <div className={style.wrapper2}>
                     <div className={style.user}>
-                        <h5 className={style.author}>{post.handle}</h5>
-                        <p className={style.spacing}>{post.id}</p>
+                        <a href={`posts?from_users=${post.handle}`} >  <div className={style.author}>{post.handle}</div>
+                        </a>
+                        {/* <p className={style.spacing}>{post.id}</p> */}
 
                         <div className={style.FilterBtnSmall} onClick={handleGraph}>
                             <p className={style.applyFilter}>Social Graph</p>
@@ -97,12 +101,16 @@ const Profile = ({ post }) => {
                     : <p className={style.spacing}>{moment(post.createdAt).format('MMMM DD')}</p>} */}
                     </div>
                     <div>
-                        <p className={style.title}>{sanitize(post.bio)}</p>
+                        {isValid(post.name) && <p className={style.title}><Person /> <span className={style.muted}>{post.name}{""} {post.id}</span></p>}
                     </div>
                     <div>
-                        {isValid(post.name) && <p className={style.title}>Name <span className={style.muted}>{post.name}</span></p>}
-                        {isValid(post.location) && <p className={style.title}>Location <span className={style.muted}>{post.location}</span></p>}
-                        <p className={style.title}>Owned by <span className={style.muted}>{post.ownedBy}</span></p>
+                        <p className={style.bio}>{sanitize(post.bio)}</p>
+                    </div>
+                    <div className={style.flex}>
+
+                        {isValid(post.location) && <p className={style.title}><Location /> <span className={style.muted}>{post.location}</span></p>}
+
+                        <p className={`${style.title} ${post.location ? style.spaceLeft : ""}`}><Key /> <span className={style.link}>{post.ownedBy}</span></p>
                     </div>
                     <div className={style.social}>
                         <p className={style.unmuted}>{post.stats.totalPublications ? post.stats.totalPublications : 0}<span className={style.muted}>Publications</span></p>

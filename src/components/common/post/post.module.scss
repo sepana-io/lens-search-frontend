@@ -23,27 +23,33 @@
     cursor: pointer;
 }
 .user {
-    display: flex;
-    align-items: center;
-    color: #979797;
-    font-size: 15px;
+    // display: flex;
+    // align-items: center;
+    .flex{
+        display: flex;
+    }
     .author {
         color: #0e501d;
         font-size: 14px;
         margin-top: 0px;
         margin-bottom: 4px;
+        cursor: pointer;
     }
     .spacing {
         margin-top: 0px;
         margin-bottom: 4px;
         padding-left: 8px;
     }
+    color: #979797;
+    font-size: 15px;
 }
 .title {
     margin-top: 0px;
     margin-bottom: 4px;
     font-weight: 500;
     font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 .description {
     margin-top: 0px;
