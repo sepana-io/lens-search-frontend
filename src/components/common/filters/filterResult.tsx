@@ -87,8 +87,8 @@ const FilterResult = ({ title = 'Filter results by', onClose, search, dispatch }
     <div className={style.sticky65}>
       <div className={style.flexrow}>
         <p className={style.title}>{title}</p>
-        <div className={style.BarIcon}>
-          {/* <Close size={30} onClick={onClose} color={'primary'} /> */}
+        <div className={style.BarIcon} >
+          <Close color={'success'} fontSize={'small'} onClick={onClose}/>
         </div>
 
       </div>

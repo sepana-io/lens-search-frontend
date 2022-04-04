@@ -145,7 +145,7 @@
     .applyFilter {
         font-size: 14px;
         font-weight: 600;
-        color: #abfe2d;
+        color: $color-text;
     }
     .outer {
         height: 39px;
@@ -158,5 +158,15 @@
         font-size: 16px;
         font-weight: 400;
         color: #7ea186;
+    }
+}
+@media screen and (max-width: 600px) {
+    .Wrapper{
+        top: 10px;
+        height: calc(100vh - 120px);
+        width: 90vw;
+        .title{
+            margin-bottom: 20px;
+        }
     }
 }

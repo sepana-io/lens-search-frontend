@@ -68,9 +68,9 @@
         justify-content: center;
         align-items: center;
         transition: all 0.3s ease-in-out;
-        color: #abfe2d;
+        color: $color-text;
         path {
-            fill: #abfe2d;
+            fill: $color-text;
         }
         &:hover {
             background-color: #699724;

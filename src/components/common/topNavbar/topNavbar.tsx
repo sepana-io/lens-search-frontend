@@ -3,6 +3,7 @@ import UnderlineIcon from '../../../assets/icons/Active.svg'
 import { useRouter } from 'next/router'
 import { objIsEqual, queryObjToString, queryStringToObject } from '../../../utils/util'
 import { borderRadius } from '@mui/system'
+import style from './topNavbar.module.scss';
 interface Props {
   data: any[];
   onTabChange: () => void;
@@ -37,7 +38,7 @@ const TopNavBar = ({ data = [], onTabChange }: Props) => {
   }, [asPath])
 
   return (
-    <div style={{ maxWidth: 500, display: 'flex', justifyContent: 'space-around' }}>
+    <div className={style.wrapper}>
       {data.map((item, index): any => <TopicName key={index} label={item} active={index === activeIndex} onClick={() => onChangeTab(item.toLowerCase())} />)}
     </div>
   )
@@ -46,9 +47,9 @@ const TopNavBar = ({ data = [], onTabChange }: Props) => {
 export default TopNavBar;
 
 const TopicName = ({ label, active = false, onClick }: any) => {
-  return <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }}
+  return <div className={style.topicName}
     onClick={() => onClick()}>
-    <p style={{ marginBottom: 0, width: 70, textAlign: 'center', color: active ? '#0E501D' : '#000', fontWeight: 700, fontSize: 16 }}>{label}
+    <p className={`${style.text} ${active ? style.active : style.notactive}`}>{label}
       {active && <UnderlineIcon />}
     </p>
   </div>

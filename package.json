@@ -22,6 +22,7 @@
     "dompurify": "^2.3.6",
     "express": "^4.17.3",
     "http-proxy-middleware": "^2.0.4",
+    "markdown-to-text": "^0.1.1",
     "moment": "^2.29.1",
     "next": "12.1.0",
     "react": "17.0.2",

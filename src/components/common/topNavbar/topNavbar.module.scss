@@ -1,0 +1,44 @@
+.wrapper{
+    max-width: 500px;
+    display: flex; 
+    justify-content: space-around;
+    margin-top: 72px;
+}
+.topicName {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+}
+.text{
+    margin-bottom: 0px;
+    width: 70px; 
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+.active{
+    color: #0E501D;
+}
+.notactive{
+    color: #000
+}
+@media screen and (max-width: 730px) {
+    .wrapper{
+        max-width: 400px;
+        padding-left: 5vw;
+    }
+}
+@media screen and (max-width: 605px) {
+    .wrapper{
+        max-width: 370px;
+        padding-left: 10vw;
+    }
+}
+@media screen and (max-width: 600px) {
+    .wrapper{
+        max-width: 450px;
+        padding-left: 0px;
+    }
+}

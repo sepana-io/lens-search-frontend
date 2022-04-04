@@ -30,12 +30,12 @@ const Home: NextPage = () => {
     }, [router])
 
     return (<div className={style.root}>
-        <Grid container style={{ marginTop: 72 }}>
-            <Grid item xs={4}>
+        <Grid container >
+            <Grid item xs={0} sm={4} className={style.filter}>
                 <FilterResult />
             </Grid>
 
-            <Grid item xs={8}>
+            <Grid item xs={12} sm={8}>
                 <TopNavBar data={topData} onTabChange={() => null} />
                 <div>
                     <InfiniteScroll

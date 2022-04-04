@@ -1,7 +1,6 @@
 @import "../../../../styles/mixins";
 
 .wrapper {
-    // width: 100%;
     border: 1px solid #e5e5e5;
     box-sizing: border-box;
     border-radius: 7px;
@@ -11,9 +10,12 @@
     padding: 15px;
     margin-bottom: 20px;
     margin-top: 20px;
+    // width: 80vw;
+    // min-width: max-content;
 }
 .wrapper2 {
     padding-left: 10px;
+    // width: 100%;
 }
 .avatar {
     height: 50px;
@@ -50,20 +52,35 @@
     font-size: 15px;
     display: flex;
     align-items: center;
+    word-break: break-all;
+    // max-width: fit-content;
 }
 .description {
     margin-top: 0px;
     font-size: 15px;
+    word-break: break-all;
 }
 .mainImage {
     max-height: 300px;
 }
 .social {
     display: flex;
+    min-width: 270px;
+}
+.cursor {
+    cursor: pointer;
+}
+
+.expand{
+    height: 200px;
+    overflow-y: auto;
 }
 .unmuted {
     padding-left: 8px;
     height: 10px;
+}
+.p_0{
+    padding: 0px;
 }
 .muted {
     padding-left: 8px;
@@ -104,6 +121,34 @@
     .applyFilter {
         font-size: 14px;
         font-weight: 400;
-        color: #abfe2d;
+        color: $color-text;
+    }
+}
+.flex{
+    display: flex;
+}
+@media screen and (max-width: 600px) {
+    .wrapper{
+        max-width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wrapper2{
+        max-width: 80%;
+    }
+    .mainImage{
+        max-width: 80%;
+    }
+    .title{
+        max-width: fit-content;
+    }
+    .description{
+        max-width: fit-content;
+    }
+    .unmuted{
+        font-size: 90%;
+    }
+    .muted{
+        font-size: 90%;
     }
 }

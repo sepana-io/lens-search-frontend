@@ -13,6 +13,7 @@ let ForceGraph2D = null
 
 
 const Profile = ({ post }) => {
+
     const [graphData, setGraphData] = useState({ nodes: [], links: [] })
     const fgRef = useRef();
     const containerView = useRef();
@@ -79,13 +80,13 @@ const Profile = ({ post }) => {
 
     return (
         <div className={style.wrapper} ref={containerView}>
-            <div style={{ display: 'flex' }}>
+            <div className={style.flex}>
                 <div>
                     <ProfileImage item={post} />
                 </div>
 
                 <div className={style.wrapper2}>
-                    <div className={style.user}>
+                    <div className={style.user} style={{ justifyContent: 'space-between' }}>
                         <a href={`posts?from_users=${post.handle}`} >  <div className={style.author}>{post.handle}</div>
                         </a>
                         {/* <p className={style.spacing}>{post.id}</p> */}
@@ -101,7 +102,7 @@ const Profile = ({ post }) => {
                     : <p className={style.spacing}>{moment(post.createdAt).format('MMMM DD')}</p>} */}
                     </div>
                     <div>
-                        {isValid(post.name) && <p className={style.title}><Person /> <span className={style.muted}>{post.name}{" · "} {post.id}</span></p>}
+                        {isValid(post.name) && <p className={style.title}><span className={style.muted} style={{ color: '#979797', marginLeft: -7, marginTop: -5 }}>{post.name}{" · "} {post.id}</span></p>}
                     </div>
                     <div>
                         <p className={style.bio}>{sanitize(post.bio)}</p>
@@ -110,10 +111,10 @@ const Profile = ({ post }) => {
 
                         {isValid(post.location) && <p className={style.title}><Location /> <span className={style.muted}>{post.location}</span></p>}
 
-                        <p className={`${style.title} ${post.location ? style.spaceLeft : ""}`}><Key /> <span className={style.link}>{post.ownedBy}</span></p>
+                        <p className={`${style.title} ${post.location ? style.spaceLeft : ""}`}><Key /> <a href={`https://polygonscan.com/address/${post.ownedBy}`} target='_blank' rel="noreferrer"><span className={style.link}>{post.ownedBy}</span></a></p>
                     </div>
                     <div className={style.social}>
-                        <p className={style.unmuted}>{post.stats.totalPublications ? post.stats.totalPublications : 0}<span className={style.muted}>Publications</span></p>
+                        <p className={style.unmuted} style={{ marginLeft: -7 }}>{post.stats.totalPublications ? post.stats.totalPublications : 0}<span className={style.muted}>Publications</span></p>
                         <p className={style.unmuted}>{post.stats.totalFollowers ? post.stats.totalFollowers : 0}<span className={style.muted}>Followers</span></p>
                         <p className={style.unmuted}>{post.stats.totalFollowing ? post.stats.totalFollowing : 0}<span className={style.muted}>Following</span></p>
                     </div>

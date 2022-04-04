@@ -15,5 +15,14 @@
 }
 
 .root {
-    flex-grow: 1;
+    display: flex;
+    // flex-grow: 1;
+}
+.filter{
+    display: block;
+}
+@media screen and (max-width: 600px) {
+    .filter{
+        display: none;
+    }
 }

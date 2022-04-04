@@ -1,13 +1,25 @@
 @import "../../../styles/mixins";
 
-.wrapper {
+.wrapper{
     height: 72px;
     background-color: $color-white;
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
+    width: 100vw;
+    // top: 0px;
+}
+.flex{
+    padding-top: 15px;
+    // padding-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+}
+.miniWrapper{
+    max-width: 1200px; 
+    width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
 }
 .link {
     margin-left: 16px;
@@ -52,6 +64,12 @@
     justify-content: center;
     max-width: 800px;
 }
+.searchShow{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-width: 50vw;
+}
 .both {
     display: flex;
     align-items: center;
@@ -64,7 +82,7 @@
     height: 34px;
     width: 34px;
     border-radius: 360px;
-    background-color: #abfe2d;
+    background-color: $color-text;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -72,5 +90,48 @@
     transition: all 0.3s ease-in-out;
     &:hover {
         background-color: #cbff7d;
+    }
+}
+.filter{
+    padding-right: 8px;
+}
+.logo_mobile{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .searchShow{
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        min-width: 90vw;
+    }
+    .searchShow{
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        min-width: 60vw;
+    }
+}
+@media screen and (max-width: 800px) {
+    .logo{
+        display: none;
+    }
+    .logo_mobile{
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        padding-top: 10px !important;
+        padding-left: 20px !important;
+        padding-right: 10px !important;
+    }
+    .filter{
+        padding-left: 10px !important;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .filter{
+        display: none;
     }
 }

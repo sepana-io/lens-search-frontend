@@ -6,17 +6,16 @@ import { Provider } from 'react-redux'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   return <>
-  <Head>
-        <title>SEPANA</title>
-      </Head>
+    <Head>
+      <title>SEPANA</title>
+    </Head>
     <Provider store={store}>
-      <Header />
-      <div style={{ width: '100vw', display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 1200, minWidth: 720, width: '100%' }}>
-          <Component {...pageProps} />
-        </div>
+      <div style={{ width: '100vw' }}>
+        <Header />
+      </div>
+      <div style={{ maxWidth: 1200, width: '100vw', marginRight: 'auto', marginLeft: 'auto' }}>
+        <Component {...pageProps} />
       </div>
     </Provider >
   </>

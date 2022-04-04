@@ -18,7 +18,7 @@ app.prepare().then(() => {
     expressApp.use('/profiles', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
     expressApp.use('/app_id', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
     expressApp.use('/traverse', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
-
+    expressApp.use('/comments', createProxyMiddleware({ target: proxyUrl, changeOrigin: true }));
     expressApp.all('*', (req, res) => handle(req, res));
 
     expressApp.listen(PORT, () => console.log("######## app running ########"));
